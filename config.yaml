@@ -1,0 +1,56 @@
+protocol_status: frozen
+model:
+  path: models/face_landmarker.task
+  url: https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task
+  num_faces: 1
+  min_face_detection_confidence: 0.5
+  min_face_presence_confidence: 0.5
+  min_tracking_confidence: 0.5
+landmarks:
+  inner_brows:
+  - 55
+  - 285
+  outer_brows:
+  - 46
+  - 276
+  inner_eyes:
+  - 133
+  - 362
+  scale_eyes:
+  - 33
+  - 263
+orientation:
+  euler_sequence: xyz
+  pitch_sign: 1
+  sign_verified: true
+reference:
+  target_duration_s: 0.5
+  minimum_duration_s: 0.2
+  minimum_valid_frames: 5
+training:
+  max_samples_per_recording: 150
+  gam_df: 6
+  gam_penalties:
+  - 0.1
+  - 1.0
+  - 10.0
+  mlp_hidden_units: 8
+  mlp_penalties:
+  - 0.001
+  - 0.01
+  - 0.1
+  mlp_seeds:
+  - 42
+  - 7
+  - 19
+  mlp_max_iter: 3000
+  selection_metric: recording_mean_supported_rmse
+validation:
+  distances:
+  - close
+  - middle
+  - far
+  outside_support: raw_fallback
+protocol_frozen_at: '2026-10-08T19:30:14.005903+02:00'
+review_basis: unvalidated visual annotation; descriptive one-participant pilot; no human second
+  rater

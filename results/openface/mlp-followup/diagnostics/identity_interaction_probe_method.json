@@ -1,0 +1,86 @@
+{
+  "reference_rows": [
+    {
+      "fold": 0,
+      "neutral_row": 1715
+    },
+    {
+      "fold": 0,
+      "neutral_row": 1717
+    },
+    {
+      "fold": 0,
+      "neutral_row": 1716
+    },
+    {
+      "fold": 0,
+      "neutral_row": 1718
+    },
+    {
+      "fold": 0,
+      "neutral_row": 1714
+    },
+    {
+      "fold": 1,
+      "neutral_row": 3036
+    },
+    {
+      "fold": 1,
+      "neutral_row": 3003
+    },
+    {
+      "fold": 1,
+      "neutral_row": 3037
+    },
+    {
+      "fold": 1,
+      "neutral_row": 3035
+    },
+    {
+      "fold": 1,
+      "neutral_row": 3038
+    },
+    {
+      "fold": 2,
+      "neutral_row": 3036
+    },
+    {
+      "fold": 2,
+      "neutral_row": 3033
+    },
+    {
+      "fold": 2,
+      "neutral_row": 3032
+    },
+    {
+      "fold": 2,
+      "neutral_row": 3035
+    },
+    {
+      "fold": 2,
+      "neutral_row": 3034
+    },
+    {
+      "fold": 3,
+      "neutral_row": 3036
+    },
+    {
+      "fold": 3,
+      "neutral_row": 3035
+    },
+    {
+      "fold": 3,
+      "neutral_row": 3032
+    },
+    {
+      "fold": 3,
+      "neutral_row": 3033
+    },
+    {
+      "fold": 3,
+      "neutral_row": 3037
+    }
+  ],
+  "method": "For each outer fold, use five actual training poses nearest the robustly scaled training median. Cross known training signer and sentence categories at each fixed pose. Remove row and column means to obtain the two-way additive residual. Average probe summaries over five poses.",
+  "interpretation": "Synthetic identity swaps may not be physically meaningful or covered. This checks model dependence on indicator combinations; it does not estimate a causal identity effect or new evaluation performance."
+}

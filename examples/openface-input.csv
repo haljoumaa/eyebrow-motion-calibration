@@ -1,0 +1,3 @@
+pose_Rx,pose_Ry,pose_Rz,pose_Tx,pose_Ty,pose_Tz,speaker,sentence
+0.0,0.0,0.0,0.0,0.0,100.0,alt,dev_upala
+0.1,-0.1,0.02,1.0,-1.0,100.0,alt,dev_upala

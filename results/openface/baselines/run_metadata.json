@@ -1,0 +1,103 @@
+{
+  "run_at_oslo": "2026-10-11T10:48:11.754323+02:00",
+  "phase": 1,
+  "scope": "Global/signer means on historical frame splits only",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.5",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1"
+  },
+  "inputs": {
+    "github_commit": "c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0",
+    "input_sha256": {
+      "research/upstream-assets.json": "5ead70047cc70939096e4c192aef649a0576e0a24e3cd67f9b9979d363b07c19",
+      "research/upstream-review/github/processing/saved/open_face_with_distances.csv": "603bb0b91c392335fee3dcfefa2c2845d90f5445c951ae47d710a5321d6cdcbf",
+      "research/upstream-review/github/processing/saved/additional_stats_from_elan.json": "85bfeb318134ded251b9a9ee485bbeff653d4265135c09866f5244fb8871c21d"
+    },
+    "filter": "video_name in videos_no_brows AND sType == 'st'",
+    "released_frames": 18169,
+    "neutral_frames": 4414,
+    "neutral_recordings": 63,
+    "neutral_signers": 8,
+    "low_confidence_rows_retained": 65,
+    "success_zero_rows_retained": 65,
+    "target_order": [
+      "inner_perp_dist39_42_3d",
+      "outer_perp_dist39_42_3d"
+    ],
+    "numeric_pose_order": [
+      "pose_Rx",
+      "pose_Ry",
+      "pose_Rz",
+      "pose_Tx",
+      "pose_Ty",
+      "pose_Tz"
+    ],
+    "source_order_preserved": true,
+    "excluded_for_quality": 0,
+    "quality_note": "Retained flags do not establish whether coordinates were previously repaired."
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "training_frames": 3310,
+      "validation_frames": 1104,
+      "shared_recordings": 63,
+      "training_low_confidence": 48,
+      "validation_low_confidence": 17
+    },
+    {
+      "fold": 1,
+      "training_frames": 3310,
+      "validation_frames": 1104,
+      "shared_recordings": 63,
+      "training_low_confidence": 50,
+      "validation_low_confidence": 15
+    },
+    {
+      "fold": 2,
+      "training_frames": 3310,
+      "validation_frames": 1104,
+      "shared_recordings": 63,
+      "training_low_confidence": 47,
+      "validation_low_confidence": 18
+    },
+    {
+      "fold": 3,
+      "training_frames": 3310,
+      "validation_frames": 1104,
+      "shared_recordings": 63,
+      "training_low_confidence": 47,
+      "validation_low_confidence": 18
+    }
+  ],
+  "splitter": {
+    "name": "ShuffleSplit",
+    "n_splits": 4,
+    "test_size": 0.25,
+    "random_state": 0
+  },
+  "weighting": "equal training-frame weights; equal validation-frame weights within each fold; mean validation metric over four folds",
+  "source_sha256": {
+    "src/facial_motion/openface_data.py": "4ae94db970e469ab934d3f38c2640acad86ad55be2d11588d2864f599eefa8c7",
+    "src/facial_motion/openface_baselines.py": "9c7559d3e53651c92230b0cebadb95f73ff048c055f828b5cfba743bbbee689e",
+    "tests/test_openface_baselines.py": "d42413452385a4be7d79b6be3dbb2d6d78796c5626a6bfbf7144efff499d0376",
+    "docs/openface-protocol.md": "e8b19cc223175b1b334c5d40ba1563f76170a4abfde67a1de327b39a69934408"
+  },
+  "artifact_sha256": {
+    "hand_example.json": "4e46b9fac7a82c22033da3221c339c1e0b3d682647e56e6e085994d87fbd16f3",
+    "historical_assignments.csv": "e35939edf084e3f02d3fbf8f294838f9fff3e82d0861a1a60a415a43a550a3f4",
+    "historical_metrics.csv": "78e1727961c5549196f80df2a498e8c9251851cf005f4103243214e2b3b9b1cf",
+    "historical_predictions.csv": "f67520ecedef27b0356eb8c406f9e4af100a3b2691565b74dd8398be2f62f30e",
+    "historical_summary.csv": "97b2a05de98e6a740909270fd570bd52a03558c9a13dbf81fba214530e4553b3",
+    "neutral_rows.csv": "fa1a08ed91599c8e76d5f65e533bf5ef4515d488cfdc913874f922e3d2f89bba",
+    "real_example.json": "a45459f806a244135ccc574a13fa3c6ac0f03e4f50ac5d62181c86b16295943a",
+    "sample_rows.csv": "55c41548bb126c89dbcb35361b108374fd29e0e7993968bfb2dcc9bb518dce82",
+    "training_means.json": "a7be65ace53edaf883aaf08c516f50e4bdc1b35fab189283f3729ad14d775d45",
+    "verification.json": "fc7e8d4e81a167f0d48b5ef6a2208318989c43dfa2078c9a4d64765b88255eef"
+  },
+  "neural_or_ridge_models_trained": false,
+  "interpretation": "Within-recording neutral prediction; no new-recording or expression-preservation claim."
+}

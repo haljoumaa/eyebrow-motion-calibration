@@ -1,0 +1,90 @@
+[
+  {
+    "fold": 0,
+    "partition": "training",
+    "n_frames": 3164,
+    "n_recordings": 46,
+    "unknown_sentence_frames": 0,
+    "unknown_sentence_recordings": 0,
+    "unknown_sentence_frame_fraction": 0.0,
+    "unknown_sentence_recording_fraction": 0.0,
+    "unknown_sentences": []
+  },
+  {
+    "fold": 0,
+    "partition": "validation",
+    "n_frames": 1250,
+    "n_recordings": 17,
+    "unknown_sentence_frames": 0,
+    "unknown_sentence_recordings": 0,
+    "unknown_sentence_frame_fraction": 0.0,
+    "unknown_sentence_recording_fraction": 0.0,
+    "unknown_sentences": []
+  },
+  {
+    "fold": 1,
+    "partition": "training",
+    "n_frames": 3204,
+    "n_recordings": 46,
+    "unknown_sentence_frames": 0,
+    "unknown_sentence_recordings": 0,
+    "unknown_sentence_frame_fraction": 0.0,
+    "unknown_sentence_recording_fraction": 0.0,
+    "unknown_sentences": []
+  },
+  {
+    "fold": 1,
+    "partition": "validation",
+    "n_frames": 1210,
+    "n_recordings": 17,
+    "unknown_sentence_frames": 0,
+    "unknown_sentence_recordings": 0,
+    "unknown_sentence_frame_fraction": 0.0,
+    "unknown_sentence_recording_fraction": 0.0,
+    "unknown_sentences": []
+  },
+  {
+    "fold": 2,
+    "partition": "training",
+    "n_frames": 3434,
+    "n_recordings": 48,
+    "unknown_sentence_frames": 0,
+    "unknown_sentence_recordings": 0,
+    "unknown_sentence_frame_fraction": 0.0,
+    "unknown_sentence_recording_fraction": 0.0,
+    "unknown_sentences": []
+  },
+  {
+    "fold": 2,
+    "partition": "validation",
+    "n_frames": 980,
+    "n_recordings": 15,
+    "unknown_sentence_frames": 0,
+    "unknown_sentence_recordings": 0,
+    "unknown_sentence_frame_fraction": 0.0,
+    "unknown_sentence_recording_fraction": 0.0,
+    "unknown_sentences": []
+  },
+  {
+    "fold": 3,
+    "partition": "training",
+    "n_frames": 3440,
+    "n_recordings": 49,
+    "unknown_sentence_frames": 0,
+    "unknown_sentence_recordings": 0,
+    "unknown_sentence_frame_fraction": 0.0,
+    "unknown_sentence_recording_fraction": 0.0,
+    "unknown_sentences": []
+  },
+  {
+    "fold": 3,
+    "partition": "validation",
+    "n_frames": 974,
+    "n_recordings": 14,
+    "unknown_sentence_frames": 0,
+    "unknown_sentence_recordings": 0,
+    "unknown_sentence_frame_fraction": 0.0,
+    "unknown_sentence_recording_fraction": 0.0,
+    "unknown_sentences": []
+  }
+]

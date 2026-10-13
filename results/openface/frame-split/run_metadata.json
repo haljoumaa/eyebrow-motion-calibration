@@ -1,0 +1,188 @@
+{
+  "completed_at_oslo": "2026-10-11T10:48:24.699803+02:00",
+  "phase": 3,
+  "config": {
+    "phase": 3,
+    "evaluation": "historical_frame_split",
+    "splitter": {
+      "n_splits": 4,
+      "test_size": 0.25,
+      "random_state": 0
+    },
+    "primary_seed": 42,
+    "sensitivity_seeds": [
+      7,
+      19
+    ],
+    "ridge": {
+      "alpha": 0.001
+    },
+    "mlp": {
+      "hidden_layer_sizes": [
+        40
+      ],
+      "activation": "relu",
+      "solver": "adam",
+      "alpha": 0.0001,
+      "max_iter": 1500,
+      "early_stopping": false
+    },
+    "target_scaling": false,
+    "input_scaling": "StandardScaler on complete training numeric/one-hot matrix",
+    "quality_exclusions": 0,
+    "supplementary_max_iter": 3000
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "training_frames": 3310,
+      "validation_frames": 1104,
+      "shared_recordings": 63,
+      "training_low_confidence": 48,
+      "validation_low_confidence": 17,
+      "training_joint_target_mean": 27.821614388289138,
+      "training_mean_target_sample_std": 4.228878990510124,
+      "validation_joint_target_mean": 27.859123291934672,
+      "validation_mean_target_sample_std": 4.107883762360772
+    },
+    {
+      "fold": 1,
+      "training_frames": 3310,
+      "validation_frames": 1104,
+      "shared_recordings": 63,
+      "training_low_confidence": 50,
+      "validation_low_confidence": 15,
+      "training_joint_target_mean": 27.82394441744943,
+      "training_mean_target_sample_std": 4.242329273573295,
+      "validation_joint_target_mean": 27.85213742552111,
+      "validation_mean_target_sample_std": 4.066153971832601
+    },
+    {
+      "fold": 2,
+      "training_frames": 3310,
+      "validation_frames": 1104,
+      "shared_recordings": 63,
+      "training_low_confidence": 47,
+      "validation_low_confidence": 18,
+      "training_joint_target_mean": 27.80933088420195,
+      "training_mean_target_sample_std": 4.125495921980354,
+      "validation_joint_target_mean": 27.89595155147142,
+      "validation_mean_target_sample_std": 4.411375149240393
+    },
+    {
+      "fold": 3,
+      "training_frames": 3310,
+      "validation_frames": 1104,
+      "shared_recordings": 63,
+      "training_low_confidence": 47,
+      "validation_low_confidence": 18,
+      "training_joint_target_mean": 27.8325457129681,
+      "training_mean_target_sample_std": 4.145330519616822,
+      "validation_joint_target_mean": 27.826349121022208,
+      "validation_mean_target_sample_std": 4.356027094583016
+    }
+  ],
+  "python": "3.12.5",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.14.1",
+    "scikit-learn": "1.6.1",
+    "threadpoolctl": "3.7.0"
+  },
+  "threadpools_during_fit": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libopenblas",
+      "filepath": "libopenblas64_.0.dylib",
+      "version": "0.3.23.dev",
+      "threading_layer": "pthreads",
+      "architecture": "armv8"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 1,
+      "prefix": "libomp",
+      "filepath": "libomp.dylib",
+      "version": null
+    }
+  ],
+  "inputs": {
+    "github_commit": "c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0",
+    "input_sha256": {
+      "research/upstream-assets.json": "5ead70047cc70939096e4c192aef649a0576e0a24e3cd67f9b9979d363b07c19",
+      "research/upstream-review/github/processing/saved/open_face_with_distances.csv": "603bb0b91c392335fee3dcfefa2c2845d90f5445c951ae47d710a5321d6cdcbf",
+      "research/upstream-review/github/processing/saved/additional_stats_from_elan.json": "85bfeb318134ded251b9a9ee485bbeff653d4265135c09866f5244fb8871c21d"
+    },
+    "filter": "video_name in videos_no_brows AND sType == 'st'",
+    "released_frames": 18169,
+    "neutral_frames": 4414,
+    "neutral_recordings": 63,
+    "neutral_signers": 8,
+    "low_confidence_rows_retained": 65,
+    "success_zero_rows_retained": 65,
+    "target_order": [
+      "inner_perp_dist39_42_3d",
+      "outer_perp_dist39_42_3d"
+    ],
+    "numeric_pose_order": [
+      "pose_Rx",
+      "pose_Ry",
+      "pose_Rz",
+      "pose_Tx",
+      "pose_Ty",
+      "pose_Tz"
+    ],
+    "source_order_preserved": true,
+    "excluded_for_quality": 0,
+    "quality_note": "Retained flags do not establish whether coordinates were previously repaired."
+  },
+  "source_sha256": {
+    "src/facial_motion/openface_reproduction.py": "8c818d2f6209cca3e00e23eb53c3768899a2669170f96e2d99dd27975ce38a0b",
+    "src/facial_motion/openface_data.py": "4ae94db970e469ab934d3f38c2640acad86ad55be2d11588d2864f599eefa8c7",
+    "src/facial_motion/openface_baselines.py": "9c7559d3e53651c92230b0cebadb95f73ff048c055f828b5cfba743bbbee689e",
+    "tests/test_openface_reproduction.py": "aa639d7ac25732cb4cd93a7ddaee536809c683a49eacc12431f3e5f98e21efc6",
+    "configs/openface-reproduction.json": "142daeed909cdfdebd02d9eecb7bda5c17acb834fa7c5836e393832ef93cf602",
+    "docs/openface-protocol.md": "e8b19cc223175b1b334c5d40ba1563f76170a4abfde67a1de327b39a69934408"
+  },
+  "artifact_sha256": {
+    "archived_reference.json": "edd7fb442f3b3bcbcdcb7cafc984a84bbb42482c3bb1be414b9b6b3c3de0dc50",
+    "convergence_remedies.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "fit_states/fold0_mlp_seed19_iter1500.json": "0c9f3750a7b606a45a24dac6f6e6f243c06cc3f0a74a1d6bebbb5ddd085a6507",
+    "fit_states/fold0_mlp_seed42_iter1500.json": "cf6f7d65922150109d8acd6b7ba69c1bd939c59d9b14bdd892c51ed74a43e163",
+    "fit_states/fold0_mlp_seed7_iter1500.json": "a5f39de913571affe279f708f7d63ef2409ed6a627ae723a1ed9e4efeb4f79da",
+    "fit_states/fold0_ridge.json": "7fb05e8e5c35acd624f43a6c0fbbc07e145c799bc7c2c791094b8f8e16361b49",
+    "fit_states/fold1_mlp_seed19_iter1500.json": "b3e651769be81da45acdd68a58616b4bf446de3c4915510526af8efdd03b33c2",
+    "fit_states/fold1_mlp_seed42_iter1500.json": "002ddcebb4b4fcc28c7319c18a7d49f81b9e5fe6db83595a53c6df23c9199413",
+    "fit_states/fold1_mlp_seed7_iter1500.json": "8154bc090daaa6fab7fdfd9fec1f15ff3ee56cef215a133505c423b646bc2d21",
+    "fit_states/fold1_ridge.json": "a6b5903e7b2454f4b4693423dbadd0d99d162e9018e3f99adf37521b23d13279",
+    "fit_states/fold2_mlp_seed19_iter1500.json": "8873d45f56c88fc82a8d53532db5ba73f6e6db1358005d90c3cd16d309b718f0",
+    "fit_states/fold2_mlp_seed42_iter1500.json": "40d9307a7d048e4418b18e2ebc19a0b2ff2111de870a69113a04292979fd8b85",
+    "fit_states/fold2_mlp_seed7_iter1500.json": "ed8706de581de161b5c2604add436c3a6a8a5c0aa8bedf2783a2dec40a02cd2e",
+    "fit_states/fold2_ridge.json": "940c177c4ff62f04b94313377758fff97a7fa59a63572aa6a3bcd89386ef169b",
+    "fit_states/fold3_mlp_seed19_iter1500.json": "44b4f1288ca12349689b44fec2051a9e6638b4492812321e9880fc3a1d5701c8",
+    "fit_states/fold3_mlp_seed42_iter1500.json": "0f0c9760b0816495e3861adc05fe1f38f9a214590d6d55934e30787f06cb00b6",
+    "fit_states/fold3_mlp_seed7_iter1500.json": "6b85e20c39c4ecb2ba79cf68a3b56319bb37c01bc6f9397640f728f338d06070",
+    "fit_states/fold3_ridge.json": "8a5e4c66bd62017cf65d3a870efe1494b988846d37fcbc43b6051753f7209a7e",
+    "historical_assignments.csv": "6124b8321300ffa0a40b8f50a444b295ffc7771362768ddf030b1c858f34a2b6",
+    "historical_metrics.csv": "3a4548b2e1cf4d0b50f30d07691068d6680ed81e911d05d89a64c0838ce0c207",
+    "historical_predictions.csv": "87c00b1ad7640e754f8d104ca793f8bae1f59724bc2448294e7096595d603869",
+    "historical_summary.csv": "2c6ca789a4a4be5e1b3af9ceea55fca09cb0d8e8a215bdda6c8846b5a37a3295",
+    "loss_curves.csv": "fc1be5ec7384f280b8e64aa121d4fd24cf4d7a22dccabe4a128918c26594fb28",
+    "model_runs.json": "7a863ea7f4413fdd2407defb52f77cb56d8bf4efe2d19998560fd35c81d68778",
+    "neutral_rows.csv": "fa1a08ed91599c8e76d5f65e533bf5ef4515d488cfdc913874f922e3d2f89bba",
+    "preprocessing.json": "aa98937d3bae17a01e2831f5e68f044ddd924d43b566140136ac3ca5bf46fbe9",
+    "real_example.json": "caa06ef907ee796a98b78408d2b7f95e85082ea111cb2f2d0965228202e28d7e",
+    "reproduction_comparison.json": "d672feb89dcd79d6b997e08c00195bd2d4023d09edebc76667222542eeaf275a",
+    "run_plan.json": "3d75ab392fd71238a101e10230b205ece4abf06e20d150b70728459da617f933",
+    "training_means.json": "a7be65ace53edaf883aaf08c516f50e4bdc1b35fab189283f3729ad14d775d45",
+    "verification.json": "557058f3139560168661ab78717c6143eeac00cde907d348c8c1584b8078d272"
+  },
+  "weighting": "equal frames within each fold; arithmetic mean across four folds; original target units",
+  "inference_bundle_verified": false,
+  "interpretation": "Within-recording neutral prediction only; not new-recording or expression-preservation evidence."
+}

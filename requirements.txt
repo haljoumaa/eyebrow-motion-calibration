@@ -1,0 +1,12 @@
+# Direct dependencies. The complete tested environment is in requirements-lock.txt.
+mediapipe==0.10.32
+opencv-contrib-python==4.10.0.84
+numpy==1.26.4
+scipy==1.14.1
+pandas==2.2.3
+statsmodels==0.14.4
+scikit-learn==1.6.1
+matplotlib==3.9.4
+PyYAML==6.0.2
+pytest==8.3.4
+certifi==2026.7.22

@@ -1,0 +1,7 @@
+{
+  "completed_oslo": "2026-10-11T16:52:34.115153+02:00",
+  "n_inner_mlp_fits": 108,
+  "n_outer_mlp_fits": 36,
+  "warning_fits": 1,
+  "incomplete_fits": 1
+}

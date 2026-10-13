@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "bundles": [
+    {
+      "fit_id": "fold0_global",
+      "fold": 0,
+      "model": "global",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold0_global.json",
+      "sha256": "37f6990f2fdccc06b45af5c1b7dff30827c05ac4f047d05ea1e787896ef65b26"
+    },
+    {
+      "fit_id": "fold0_signer",
+      "fold": 0,
+      "model": "signer",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold0_signer.json",
+      "sha256": "45016b51a36b7b3f025bedd7f400100ba22bffec9908eed97c1df7d19781e1ec"
+    },
+    {
+      "fit_id": "fold0_ridge",
+      "fold": 0,
+      "model": "ridge",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold0_ridge.json",
+      "sha256": "cb87045a6768b7425bd7ad6e81905f339c300658c4a06647c9b0a1ef2f024f82"
+    },
+    {
+      "fit_id": "fold0_identifier_ridge",
+      "fold": 0,
+      "model": "identifier_ridge",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold0_identifier_ridge.json",
+      "sha256": "4830198662dde3cf31e85cbeb77b6d11ef871a0f30380460644e28fc5645cf79"
+    },
+    {
+      "fit_id": "fold0_mlp_seed42_iter1500",
+      "fold": 0,
+      "model": "mlp",
+      "seed": 42,
+      "max_iter": 1500,
+      "path": "bundles/fold0_mlp_seed42_iter1500.json",
+      "sha256": "bd7f47a19057d325fa40b0f9b812257c4794067edc5f8bb6fb572ebb1eb6dd7a"
+    },
+    {
+      "fit_id": "fold0_mlp_seed7_iter1500",
+      "fold": 0,
+      "model": "mlp",
+      "seed": 7,
+      "max_iter": 1500,
+      "path": "bundles/fold0_mlp_seed7_iter1500.json",
+      "sha256": "c1a62458bf3bc51e3488c7075c6aebd60792d7ad7ab28168fcc3c0dfdc875b00"
+    },
+    {
+      "fit_id": "fold0_mlp_seed19_iter1500",
+      "fold": 0,
+      "model": "mlp",
+      "seed": 19,
+      "max_iter": 1500,
+      "path": "bundles/fold0_mlp_seed19_iter1500.json",
+      "sha256": "16066c1660448f99e4e6ea4088ddd25f36ffb5ea98982bc7eb833af864c0476e"
+    },
+    {
+      "fit_id": "fold1_global",
+      "fold": 1,
+      "model": "global",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold1_global.json",
+      "sha256": "aa989650c8f338aece7f8464d836021c987e1d83be0f6f3bcbb4a2563aadb721"
+    },
+    {
+      "fit_id": "fold1_signer",
+      "fold": 1,
+      "model": "signer",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold1_signer.json",
+      "sha256": "8fd5e93fd0a3f39aaf20e5abe5418b704e7bf0271ef38a50e976953176cc0992"
+    },
+    {
+      "fit_id": "fold1_ridge",
+      "fold": 1,
+      "model": "ridge",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold1_ridge.json",
+      "sha256": "eaf727d32d9d65b268f3722f3aacb256f6f24a1d4f5457cea5e43609a21b763e"
+    },
+    {
+      "fit_id": "fold1_identifier_ridge",
+      "fold": 1,
+      "model": "identifier_ridge",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold1_identifier_ridge.json",
+      "sha256": "fdf276431a5d9be9b8612c3ac54492876feee58d348ec1af1d6ad4a446acd2a4"
+    },
+    {
+      "fit_id": "fold1_mlp_seed42_iter1500",
+      "fold": 1,
+      "model": "mlp",
+      "seed": 42,
+      "max_iter": 1500,
+      "path": "bundles/fold1_mlp_seed42_iter1500.json",
+      "sha256": "b023adf75f0c8f1e0aac078cf28dcbc92d66478cd766c3a51e83b18aeb41496e"
+    },
+    {
+      "fit_id": "fold1_mlp_seed7_iter1500",
+      "fold": 1,
+      "model": "mlp",
+      "seed": 7,
+      "max_iter": 1500,
+      "path": "bundles/fold1_mlp_seed7_iter1500.json",
+      "sha256": "f0a4dd47d6523f3699cc906b40e33bc585cfa6da3a4175a3b1d1c8609d038e9e"
+    },
+    {
+      "fit_id": "fold1_mlp_seed19_iter1500",
+      "fold": 1,
+      "model": "mlp",
+      "seed": 19,
+      "max_iter": 1500,
+      "path": "bundles/fold1_mlp_seed19_iter1500.json",
+      "sha256": "dfb3e1c751892e4acbb705045aa535c437294e8d07b2191155236fea077b8954"
+    },
+    {
+      "fit_id": "fold2_global",
+      "fold": 2,
+      "model": "global",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold2_global.json",
+      "sha256": "1c804454c1267b7985752b992eba84a9d7f889c06c7095c062743771e653f915"
+    },
+    {
+      "fit_id": "fold2_signer",
+      "fold": 2,
+      "model": "signer",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold2_signer.json",
+      "sha256": "b29ba50a8f685bb8ff1b440ace0ac6425fa109aef46a978eff38369b7bf6565c"
+    },
+    {
+      "fit_id": "fold2_ridge",
+      "fold": 2,
+      "model": "ridge",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold2_ridge.json",
+      "sha256": "53b6dba68a660fa2db0547aab16652431b744f0c1efd89d2e108520f3e386fb1"
+    },
+    {
+      "fit_id": "fold2_identifier_ridge",
+      "fold": 2,
+      "model": "identifier_ridge",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold2_identifier_ridge.json",
+      "sha256": "10c918fd4f81a486b3b0275a40bc56b64f292d195d642498834ed1eb1d7d6899"
+    },
+    {
+      "fit_id": "fold2_mlp_seed42_iter1500",
+      "fold": 2,
+      "model": "mlp",
+      "seed": 42,
+      "max_iter": 1500,
+      "path": "bundles/fold2_mlp_seed42_iter1500.json",
+      "sha256": "41f6085cc7f0f86b46cf3525fa74fe87e12e532c3a9cef908c4eaa129b45d39b"
+    },
+    {
+      "fit_id": "fold2_mlp_seed7_iter1500",
+      "fold": 2,
+      "model": "mlp",
+      "seed": 7,
+      "max_iter": 1500,
+      "path": "bundles/fold2_mlp_seed7_iter1500.json",
+      "sha256": "d85320b25f8bb2412295efc3653d62915898854b4aab678612dafb071336bec5"
+    },
+    {
+      "fit_id": "fold2_mlp_seed19_iter1500",
+      "fold": 2,
+      "model": "mlp",
+      "seed": 19,
+      "max_iter": 1500,
+      "path": "bundles/fold2_mlp_seed19_iter1500.json",
+      "sha256": "2368d2e9314351ef45a459587fe4e6627de8b49bb77278492cf2dc971e0d7fa7"
+    },
+    {
+      "fit_id": "fold3_global",
+      "fold": 3,
+      "model": "global",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold3_global.json",
+      "sha256": "3991a3a558188f8123df46a99570c0242431a5a4cb1c45e5a47d17a61d66bf34"
+    },
+    {
+      "fit_id": "fold3_signer",
+      "fold": 3,
+      "model": "signer",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold3_signer.json",
+      "sha256": "a402604d1238e643a31f691ffe289a709574a7881b109adb292ed339e93827b9"
+    },
+    {
+      "fit_id": "fold3_ridge",
+      "fold": 3,
+      "model": "ridge",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold3_ridge.json",
+      "sha256": "e1c0d840fbd5319e3e8014d2650fefaea742f5940f9e78b434b1a347b614d4ff"
+    },
+    {
+      "fit_id": "fold3_identifier_ridge",
+      "fold": 3,
+      "model": "identifier_ridge",
+      "seed": null,
+      "max_iter": null,
+      "path": "bundles/fold3_identifier_ridge.json",
+      "sha256": "3892ee0d2a360d668f55e985870c13327818a3faf9b518ebcf05b3aa0cbf593e"
+    },
+    {
+      "fit_id": "fold3_mlp_seed42_iter1500",
+      "fold": 3,
+      "model": "mlp",
+      "seed": 42,
+      "max_iter": 1500,
+      "path": "bundles/fold3_mlp_seed42_iter1500.json",
+      "sha256": "5af1d78ed39bc827cf2fa8e099caf669307d0b293ccd0dc443c963ea4048b06e"
+    },
+    {
+      "fit_id": "fold3_mlp_seed7_iter1500",
+      "fold": 3,
+      "model": "mlp",
+      "seed": 7,
+      "max_iter": 1500,
+      "path": "bundles/fold3_mlp_seed7_iter1500.json",
+      "sha256": "759545a1efa7acf14b614f9b07755df35085047d3f038bebcefa4d3d4aa672a8"
+    },
+    {
+      "fit_id": "fold3_mlp_seed19_iter1500",
+      "fold": 3,
+      "model": "mlp",
+      "seed": 19,
+      "max_iter": 1500,
+      "path": "bundles/fold3_mlp_seed19_iter1500.json",
+      "sha256": "a38c10250367a5b272adfa19cc125b426bbb456925e79c942fb7ada0ce5a6eca"
+    }
+  ],
+  "same_process_predictions_checked": true,
+  "absolute_tolerance": 1e-12,
+  "relative_tolerance": 1e-12
+}

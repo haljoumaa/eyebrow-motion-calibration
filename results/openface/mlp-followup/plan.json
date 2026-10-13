@@ -1,0 +1,54 @@
+{
+  "recorded_before_fitting_oslo": "2026-10-11T16:50:01.603360+02:00",
+  "exploratory": true,
+  "rationale": "All signer-sentence pairs are unseen; pose novelty and confidence weakly associated with original MLP excess. Test identity interactions and L2 shrinkage, retaining original architecture and optimizer.",
+  "mlp_arms": {
+    "full": [
+      "speaker",
+      "sentence"
+    ],
+    "no_sentence": [
+      "speaker"
+    ],
+    "pose_only": []
+  },
+  "mlp_alphas": [
+    0.0001,
+    1.0,
+    100.0
+  ],
+  "ridge_alphas": [
+    0.001,
+    1.0,
+    100.0
+  ],
+  "architecture": "40 ReLU units / Adam / max_iter=1500 / early_stopping=False / unscaled targets",
+  "primary_seed": 42,
+  "sensitivity_seeds": [
+    7,
+    19
+  ],
+  "inner_splits": "GroupKFold(n_splits=3, shuffle=False), groups=video_name, source row order preserved",
+  "selection": "Per arm and outer fold, minimize pooled equal-recording inner out-of-fold joint MSE at seed 42. Ties prefer stronger alpha. No selection using outer results or sensitivity seeds.",
+  "candidate_count": "9 MLP settings plus 3 full-input ridge settings; 108 inner MLP fits, 36 inner ridge fits, 36 outer MLP fits, 4 outer ridge fits",
+  "convergence": "Fixed 1500-iteration budget; all warnings retained. Incomplete settings excluded from selection; no extra trials. If none complete in an arm, fail.",
+  "training_weighting": "equal frames",
+  "evaluation_weighting": "equal recordings pooled across folds; frame-weighted and equal-signer checks reported separately",
+  "exclusions": 0,
+  "preprocessing": "Fit categories and complete design standardization separately on each inner/outer training set; no targets in preprocessing",
+  "source": {
+    "repo": "/Users/hareth/nonmanual-research",
+    "folds_sha256": "f888c92b5c2a96fc6cc74ebddbdf01895bf00f3197f37037cd91954df58afed0",
+    "script_sha256": "f1491357006e2441b19626f2d74bc667d87006a535303d8a2844383d4ee39ad8"
+  },
+  "python": "3.12.5",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.14.1",
+    "scikit-learn": "1.6.1",
+    "threadpoolctl": "3.7.0",
+    "joblib": "1.6.0"
+  }
+}

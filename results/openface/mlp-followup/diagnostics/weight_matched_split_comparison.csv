@@ -1,0 +1,5 @@
+model,historical_frame_weighted_joint_mse,recording_frame_weighted_joint_mse,note
+Ridge,1.3175800140519651,2.4665873266398872,Matching within-frame weighting; different validation populations and dependent historical splits. No causal degradation percentage.
+MLP seed 42,0.4292381656074012,36.25331868276989,Matching within-frame weighting; different validation populations and dependent historical splits. No causal degradation percentage.
+MLP seed 7,0.430413745470276,43.74570442735216,Matching within-frame weighting; different validation populations and dependent historical splits. No causal degradation percentage.
+MLP seed 19,0.4063830042058412,43.07982866315231,Matching within-frame weighting; different validation populations and dependent historical splits. No causal degradation percentage.

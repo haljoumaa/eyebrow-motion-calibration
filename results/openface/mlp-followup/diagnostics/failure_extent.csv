@@ -1,0 +1,4 @@
+seed,worse_recordings,worse_inner,worse_outer,signers_with_positive_mean_excess,sentences_with_positive_mean_excess,top1_share_positive_excess,top5_share_positive_excess,top10_share_positive_excess,mean_excess_excluding_top5,top_recording
+42,58,56,57,8,10,0.14000993594846134,0.34424968620724783,0.5087419596467284,20.82829338533807,st-papa_beg-x
+7,60,60,59,8,10,0.111322054107815,0.38028632954447583,0.5482041656213213,25.775107155509364,st-mama_ust-makh
+19,57,56,59,8,10,0.10904728852978639,0.3846324943882698,0.5655530582440738,25.153371310735597,st-mama_ust-makh

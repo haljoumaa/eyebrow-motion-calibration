@@ -1,0 +1,230 @@
+{
+  "completed_at_oslo": "2026-10-11T10:48:38.683010+02:00",
+  "phase": 5,
+  "config": {
+    "phase": 4,
+    "evaluation": "whole_recordings_known_signers",
+    "fold_path": "configs/recording-folds.csv",
+    "fold_sha256": "f888c92b5c2a96fc6cc74ebddbdf01895bf00f3197f37037cd91954df58afed0",
+    "primary_seed": 42,
+    "sensitivity_seeds": [
+      7,
+      19
+    ],
+    "ridge": {
+      "alpha": 0.001
+    },
+    "identifier_ridge": {
+      "alpha": 0.001,
+      "inputs": [
+        "speaker",
+        "sentence"
+      ]
+    },
+    "mlp": {
+      "hidden_layer_sizes": [
+        40
+      ],
+      "activation": "relu",
+      "solver": "adam",
+      "alpha": 0.0001,
+      "max_iter": 1500,
+      "early_stopping": false
+    },
+    "primary_metric": "mean recording joint MSE across all held-out recordings",
+    "training_weighting": "equal frames",
+    "target_scaling": false,
+    "input_scaling": "StandardScaler on complete training numeric/one-hot matrix",
+    "quality_exclusions": 0,
+    "unknown_signer_policy": "reject",
+    "unknown_sentence_policy": "zero sentence indicators before scaling; flag",
+    "supplementary_max_iter": 3000
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "shared_recordings": 0,
+      "unknown_validation_signers": 0,
+      "training_frames": 3164,
+      "training_recordings": 46,
+      "training_low_confidence": 29,
+      "validation_frames": 1250,
+      "validation_recordings": 17,
+      "validation_low_confidence": 36
+    },
+    {
+      "fold": 1,
+      "shared_recordings": 0,
+      "unknown_validation_signers": 0,
+      "training_frames": 3204,
+      "training_recordings": 46,
+      "training_low_confidence": 51,
+      "validation_frames": 1210,
+      "validation_recordings": 17,
+      "validation_low_confidence": 14
+    },
+    {
+      "fold": 2,
+      "shared_recordings": 0,
+      "unknown_validation_signers": 0,
+      "training_frames": 3434,
+      "training_recordings": 48,
+      "training_low_confidence": 62,
+      "validation_frames": 980,
+      "validation_recordings": 15,
+      "validation_low_confidence": 3
+    },
+    {
+      "fold": 3,
+      "shared_recordings": 0,
+      "unknown_validation_signers": 0,
+      "training_frames": 3440,
+      "training_recordings": 49,
+      "training_low_confidence": 53,
+      "validation_frames": 974,
+      "validation_recordings": 14,
+      "validation_low_confidence": 12
+    }
+  ],
+  "python": "3.12.5",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scipy": "1.14.1",
+    "scikit-learn": "1.6.1",
+    "threadpoolctl": "3.7.0"
+  },
+  "threadpools_during_fit": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libopenblas",
+      "filepath": "libopenblas64_.0.dylib",
+      "version": "0.3.23.dev",
+      "threading_layer": "pthreads",
+      "architecture": "armv8"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 1,
+      "prefix": "libomp",
+      "filepath": "libomp.dylib",
+      "version": null
+    }
+  ],
+  "inputs": {
+    "github_commit": "c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0",
+    "input_sha256": {
+      "research/upstream-assets.json": "5ead70047cc70939096e4c192aef649a0576e0a24e3cd67f9b9979d363b07c19",
+      "research/upstream-review/github/processing/saved/open_face_with_distances.csv": "603bb0b91c392335fee3dcfefa2c2845d90f5445c951ae47d710a5321d6cdcbf",
+      "research/upstream-review/github/processing/saved/additional_stats_from_elan.json": "85bfeb318134ded251b9a9ee485bbeff653d4265135c09866f5244fb8871c21d"
+    },
+    "filter": "video_name in videos_no_brows AND sType == 'st'",
+    "released_frames": 18169,
+    "neutral_frames": 4414,
+    "neutral_recordings": 63,
+    "neutral_signers": 8,
+    "low_confidence_rows_retained": 65,
+    "success_zero_rows_retained": 65,
+    "target_order": [
+      "inner_perp_dist39_42_3d",
+      "outer_perp_dist39_42_3d"
+    ],
+    "numeric_pose_order": [
+      "pose_Rx",
+      "pose_Ry",
+      "pose_Rz",
+      "pose_Tx",
+      "pose_Ty",
+      "pose_Tz"
+    ],
+    "source_order_preserved": true,
+    "excluded_for_quality": 0,
+    "quality_note": "Retained flags do not establish whether coordinates were previously repaired."
+  },
+  "source_sha256": {
+    "src/facial_motion/openface_recording.py": "3708728a353c815608a25570cfbf2c0d69bd18c21d7fd0ea122da189d45d1da8",
+    "src/facial_motion/openface_reproduction.py": "8c818d2f6209cca3e00e23eb53c3768899a2669170f96e2d99dd27975ce38a0b",
+    "src/facial_motion/openface_baselines.py": "9c7559d3e53651c92230b0cebadb95f73ff048c055f828b5cfba743bbbee689e",
+    "src/facial_motion/openface_data.py": "4ae94db970e469ab934d3f38c2640acad86ad55be2d11588d2864f599eefa8c7",
+    "tests/test_openface_recording.py": "6d7be861e663a2a7c06528d386852a19e663ecfe096aea766f1101a877df320a",
+    "configs/openface-recording-evaluation.json": "cab43a835fb6fcade1aa9481b4f77fec17181ea53c5c280e1dd62e46a1c2f52e",
+    "docs/openface-protocol.md": "e8b19cc223175b1b334c5d40ba1563f76170a4abfde67a1de327b39a69934408",
+    "src/facial_motion/openface_bundle.py": "42385fca284ee1e22780f27eb8b4a17a59b6282210bffd2d387156a69e12df65"
+  },
+  "artifact_sha256": {
+    "assignments.csv": "907d8a6eec114311ec35baeb03e2874040b72aa9a8398f1786368a3eefb54d8c",
+    "bundle_manifest.json": "0b90e340f2a4432cf2f27eeed00bd84afc176d535ad4a0c1f2709ef5939e04c8",
+    "bundles/fold0_global.json": "37f6990f2fdccc06b45af5c1b7dff30827c05ac4f047d05ea1e787896ef65b26",
+    "bundles/fold0_identifier_ridge.json": "4830198662dde3cf31e85cbeb77b6d11ef871a0f30380460644e28fc5645cf79",
+    "bundles/fold0_mlp_seed19_iter1500.json": "16066c1660448f99e4e6ea4088ddd25f36ffb5ea98982bc7eb833af864c0476e",
+    "bundles/fold0_mlp_seed42_iter1500.json": "bd7f47a19057d325fa40b0f9b812257c4794067edc5f8bb6fb572ebb1eb6dd7a",
+    "bundles/fold0_mlp_seed7_iter1500.json": "c1a62458bf3bc51e3488c7075c6aebd60792d7ad7ab28168fcc3c0dfdc875b00",
+    "bundles/fold0_ridge.json": "cb87045a6768b7425bd7ad6e81905f339c300658c4a06647c9b0a1ef2f024f82",
+    "bundles/fold0_signer.json": "45016b51a36b7b3f025bedd7f400100ba22bffec9908eed97c1df7d19781e1ec",
+    "bundles/fold1_global.json": "aa989650c8f338aece7f8464d836021c987e1d83be0f6f3bcbb4a2563aadb721",
+    "bundles/fold1_identifier_ridge.json": "fdf276431a5d9be9b8612c3ac54492876feee58d348ec1af1d6ad4a446acd2a4",
+    "bundles/fold1_mlp_seed19_iter1500.json": "dfb3e1c751892e4acbb705045aa535c437294e8d07b2191155236fea077b8954",
+    "bundles/fold1_mlp_seed42_iter1500.json": "b023adf75f0c8f1e0aac078cf28dcbc92d66478cd766c3a51e83b18aeb41496e",
+    "bundles/fold1_mlp_seed7_iter1500.json": "f0a4dd47d6523f3699cc906b40e33bc585cfa6da3a4175a3b1d1c8609d038e9e",
+    "bundles/fold1_ridge.json": "eaf727d32d9d65b268f3722f3aacb256f6f24a1d4f5457cea5e43609a21b763e",
+    "bundles/fold1_signer.json": "8fd5e93fd0a3f39aaf20e5abe5418b704e7bf0271ef38a50e976953176cc0992",
+    "bundles/fold2_global.json": "1c804454c1267b7985752b992eba84a9d7f889c06c7095c062743771e653f915",
+    "bundles/fold2_identifier_ridge.json": "10c918fd4f81a486b3b0275a40bc56b64f292d195d642498834ed1eb1d7d6899",
+    "bundles/fold2_mlp_seed19_iter1500.json": "2368d2e9314351ef45a459587fe4e6627de8b49bb77278492cf2dc971e0d7fa7",
+    "bundles/fold2_mlp_seed42_iter1500.json": "41f6085cc7f0f86b46cf3525fa74fe87e12e532c3a9cef908c4eaa129b45d39b",
+    "bundles/fold2_mlp_seed7_iter1500.json": "d85320b25f8bb2412295efc3653d62915898854b4aab678612dafb071336bec5",
+    "bundles/fold2_ridge.json": "53b6dba68a660fa2db0547aab16652431b744f0c1efd89d2e108520f3e386fb1",
+    "bundles/fold2_signer.json": "b29ba50a8f685bb8ff1b440ace0ac6425fa109aef46a978eff38369b7bf6565c",
+    "bundles/fold3_global.json": "3991a3a558188f8123df46a99570c0242431a5a4cb1c45e5a47d17a61d66bf34",
+    "bundles/fold3_identifier_ridge.json": "3892ee0d2a360d668f55e985870c13327818a3faf9b518ebcf05b3aa0cbf593e",
+    "bundles/fold3_mlp_seed19_iter1500.json": "a38c10250367a5b272adfa19cc125b426bbb456925e79c942fb7ada0ce5a6eca",
+    "bundles/fold3_mlp_seed42_iter1500.json": "5af1d78ed39bc827cf2fa8e099caf669307d0b293ccd0dc443c963ea4048b06e",
+    "bundles/fold3_mlp_seed7_iter1500.json": "759545a1efa7acf14b614f9b07755df35085047d3f038bebcefa4d3d4aa672a8",
+    "bundles/fold3_ridge.json": "e1c0d840fbd5319e3e8014d2650fefaea742f5940f9e78b434b1a347b614d4ff",
+    "bundles/fold3_signer.json": "a402604d1238e643a31f691ffe289a709574a7881b109adb292ed339e93827b9",
+    "convergence_remedies.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "fit_states/fold0_identifier_ridge.json": "3c941e9a4d6d049e9b2efcd6bc116cf1d9a5710673fbe3452cf70373539a3189",
+    "fit_states/fold0_mlp_seed19_iter1500.json": "9faf78f94a22343b641c8a4fbee9c416b373421b3e18581a03300510eac4fa85",
+    "fit_states/fold0_mlp_seed42_iter1500.json": "8870f41ddb503be543fdb546b7b0d62a010e6833efb45a3916b6337689fde05c",
+    "fit_states/fold0_mlp_seed7_iter1500.json": "c6b2f5f457acae09ebb5fe1d798dfd46fbe8a2e613018ced4ee5a914c99236e4",
+    "fit_states/fold0_ridge.json": "fc69ed2539293969073a63e189c56fa6102f43b67872a89bf1db7d951748227e",
+    "fit_states/fold1_identifier_ridge.json": "606dbb9ef43367faa43c429750a05da0edd8ee5b49652d8425adf92f0ab4a725",
+    "fit_states/fold1_mlp_seed19_iter1500.json": "393c0f6da25c69bc734aa43045ab77d32eb4fda7cbc1a4e8daa23318197a3c15",
+    "fit_states/fold1_mlp_seed42_iter1500.json": "d55dd9a90dfb82fdd33028eb011844d04fcac514b28a493cd58a58f4e1d6da31",
+    "fit_states/fold1_mlp_seed7_iter1500.json": "ab2485e9bba7611769b0c48dec292b652f4d99fc4787f2fd6448920115a737a5",
+    "fit_states/fold1_ridge.json": "9f8bbf0e906536f4adc13a628b8264e1493f4e42007b3f915454536cd4b76aa4",
+    "fit_states/fold2_identifier_ridge.json": "564e8218a372ca0567ba099a4e14c8047d074b0923a16898f54184210af0f22b",
+    "fit_states/fold2_mlp_seed19_iter1500.json": "2c60c2e062b5b3434f0a613680e15369e0d6fe3d06b45e2f61e0ac4201e55025",
+    "fit_states/fold2_mlp_seed42_iter1500.json": "90227cec1052147ba640237b1f7d67201c5727fabee1ebe4e636c726790849f3",
+    "fit_states/fold2_mlp_seed7_iter1500.json": "fe05cd91efc7568a60eaf13a5554323098dfd00a18442e6334ac46c82ebe0b50",
+    "fit_states/fold2_ridge.json": "36efb7b596c21b98ac41fc4ae591134c53674444bab4ce914e8a043d08406cba",
+    "fit_states/fold3_identifier_ridge.json": "fae2ceffdfc56bda110aa466b646cbeabd754b2365edd4d30f147ada84a40611",
+    "fit_states/fold3_mlp_seed19_iter1500.json": "4647d3d99d0ccf4eff51b724cf4580272fa462b157a694c6382834324af1a804",
+    "fit_states/fold3_mlp_seed42_iter1500.json": "fefd4b2eb535dd75b039bbac1452aafff10753084fa885179e92a81c6a3036f4",
+    "fit_states/fold3_mlp_seed7_iter1500.json": "21c04d082c59e0e80fd470a30355bd72baccc7a1c4cbd31b78542d630bbf53b0",
+    "fit_states/fold3_ridge.json": "31f335e7c552d5b2acf112ca36145d20918e5a58c303fac43117d0f9f55dbf8f",
+    "fold_metrics.csv": "ae52663b50f80dc1ec12ad604ae0fd03cb55a1c338dda26251d54b1f64f1ff1a",
+    "loss_curves.csv": "636436bf0394d48d61d966e0929ffad5cd3e8f7eef05bfb2f898780a87991652",
+    "model_runs.json": "5db632fb3dc06c135292c2697a50509b08363bbc0206b2cf84370b61855f6935",
+    "neutral_rows.csv": "fa1a08ed91599c8e76d5f65e533bf5ef4515d488cfdc913874f922e3d2f89bba",
+    "paired_recording_differences.csv": "8f37265cf46bfa029d79403e519a3a31bbbaffe9e0f3763a645f19ef56453357",
+    "predictions.csv": "52cd812c66637c8de83c93565478c31a28a0652084a0b82338413d2ba7c9a662",
+    "preprocessing.json": "0b50a3aed2228f1967e0cfd6874cea4f9781b893b0adc4f0b842f05fe8fb1e9e",
+    "recording_allocation.csv": "f888c92b5c2a96fc6cc74ebddbdf01895bf00f3197f37037cd91954df58afed0",
+    "recording_metrics.csv": "046254b2769c978bad80b61a56a3e704274693f172ea9439980b2c67388c6572",
+    "run_plan.json": "54a1ea642fef56947da6404aa861badb1dff8854fc664c1dd2d862f3584ac99c",
+    "signer_metrics.csv": "1409a10870a4ccf990a88250d5c0e462b4f0becf0e44a688d0e16a545df5ea81",
+    "summary.csv": "abe90594977bc405c96a1a851bbaf9699d1f85e55136b0dcd72aa6bf244370bb",
+    "training_means.json": "b7879e824d27767f58c881766bdde6a5263327dad7f19cd30d038ebcdc505b59",
+    "unknown_sentence_coverage.json": "251f7ad7d13ac799bb26ebd85cf9cb1e69ca2c10f0c3bdedc8796c17fe99d734",
+    "verification.json": "10a02e6561b138263abb623a96418a9590b411230ebdbe27385a6cf6aeaa0c63"
+  },
+  "weighting": "training equal frames; validation primary equal recordings pooled across folds; frame-weighted score separate",
+  "same_process_bundle_verified": true,
+  "inference_bundle_verified": false,
+  "interpretation": "Neutral-measurement prediction on held-out recordings of known signers in the released dataset only."
+}

@@ -1,0 +1,108 @@
+{
+  "n_frames": 4414,
+  "n_recordings": 63,
+  "n_signers": 8,
+  "n_sentences": 10,
+  "n_distinct_pairs": 63,
+  "pair_seen_recordings": 0,
+  "signer_unseen_recordings": 0,
+  "sentence_unseen_recordings": 0,
+  "low_confidence_frames": 65,
+  "standard_translation_scale_note": "Training-only standard deviations can be dominated by released extreme translations; robust-scale NN is also reported.",
+  "largest_absolute_translations": {
+    "pose_Tx": 20929294.0,
+    "pose_Ty": 11772728.0,
+    "pose_Tz": 28614270.0
+  },
+  "failures": [
+    {
+      "seed": 42,
+      "worse_recordings": 58,
+      "worse_inner": 56,
+      "worse_outer": 57,
+      "signers_with_positive_mean_excess": 8,
+      "sentences_with_positive_mean_excess": 10,
+      "top1_share_positive_excess": 0.14000993594846134,
+      "top5_share_positive_excess": 0.34424968620724783,
+      "top10_share_positive_excess": 0.5087419596467284,
+      "mean_excess_excluding_top5": 20.82829338533807,
+      "top_recording": "st-papa_beg-x"
+    },
+    {
+      "seed": 7,
+      "worse_recordings": 60,
+      "worse_inner": 60,
+      "worse_outer": 59,
+      "signers_with_positive_mean_excess": 8,
+      "sentences_with_positive_mean_excess": 10,
+      "top1_share_positive_excess": 0.111322054107815,
+      "top5_share_positive_excess": 0.38028632954447583,
+      "top10_share_positive_excess": 0.5482041656213213,
+      "mean_excess_excluding_top5": 25.775107155509364,
+      "top_recording": "st-mama_ust-makh"
+    },
+    {
+      "seed": 19,
+      "worse_recordings": 57,
+      "worse_inner": 56,
+      "worse_outer": 59,
+      "signers_with_positive_mean_excess": 8,
+      "sentences_with_positive_mean_excess": 10,
+      "top1_share_positive_excess": 0.10904728852978639,
+      "top5_share_positive_excess": 0.3846324943882698,
+      "top10_share_positive_excess": 0.5655530582440738,
+      "mean_excess_excluding_top5": 25.153371310735597,
+      "top_recording": "st-mama_ust-makh"
+    }
+  ],
+  "original_metrics": [
+    {
+      "model": "Ridge",
+      "train_equal_recording_joint_mse": 1.199734531269518,
+      "equal_recording_joint_mse": 2.4713076070570343,
+      "median_recording_joint_mse": 1.1840855290676509,
+      "inner_mse": 2.5751820242692056,
+      "outer_mse": 2.3674331898448626,
+      "inner_mae": 1.1856016560971636,
+      "outer_mae": 1.1356333272586865,
+      "frame_weighted_joint_mse": 2.4665873266398872,
+      "equal_signer_joint_mse": 2.8995941164242387
+    },
+    {
+      "model": "MLP seed 42",
+      "train_equal_recording_joint_mse": 0.3397269893606192,
+      "equal_recording_joint_mse": 31.79675950296976,
+      "median_recording_joint_mse": 17.575837320763522,
+      "inner_mse": 33.3208307898372,
+      "outer_mse": 30.272688216102313,
+      "inner_mae": 4.802165760036189,
+      "outer_mae": 4.629573931070749,
+      "frame_weighted_joint_mse": 36.25331868276989,
+      "equal_signer_joint_mse": 39.02491609337108
+    },
+    {
+      "model": "MLP seed 7",
+      "train_equal_recording_joint_mse": 0.3196279104636616,
+      "equal_recording_joint_mse": 40.84976899365738,
+      "median_recording_joint_mse": 23.707494396057218,
+      "inner_mse": 40.546325679688984,
+      "outer_mse": 41.15321230762577,
+      "inner_mae": 5.454905032297457,
+      "outer_mae": 5.420148125801955,
+      "frame_weighted_joint_mse": 43.74570442735216,
+      "equal_signer_joint_mse": 45.19384786668027
+    },
+    {
+      "model": "MLP seed 19",
+      "train_equal_recording_joint_mse": 0.3179992911936389,
+      "equal_recording_joint_mse": 40.20323302163571,
+      "median_recording_joint_mse": 20.610321866086633,
+      "inner_mse": 42.305492159507395,
+      "outer_mse": 38.10097388376405,
+      "inner_mae": 5.309552131907096,
+      "outer_mae": 5.0459726175931845,
+      "frame_weighted_joint_mse": 43.07982866315231,
+      "equal_signer_joint_mse": 43.457351763849196
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source": "Kuznetsova and Kimmelman (2024), released intermediate deviations",
+  "assets": [
+    {
+      "origin": "osf",
+      "path": "head_rotation_test_brows_frame_wise_0_frame_std.csv",
+      "url": "https://osf.io/download/7uwdb/",
+      "bytes": 3509212,
+      "sha256": "75dca84a7708a795fd2f8b4d32f8d119727a987231a66387b773c493f5d35e37",
+      "git_blob_sha": null,
+      "local_path": "research/upstream-review/osf/head_rotation_test_brows_frame_wise_0_frame_std.csv"
+    }
+  ]
+}

@@ -1,0 +1,474 @@
+{
+  "0": {
+    "global": {
+      "mode": "global",
+      "weighting": "one equal weight per training frame",
+      "n_training_frames": 3310,
+      "target_order": [
+        "inner_perp_dist39_42_3d",
+        "outer_perp_dist39_42_3d"
+      ],
+      "global_mean": [
+        28.195929543133566,
+        27.447299233444706
+      ],
+      "signer_counts": {
+        "alt": 573,
+        "kar": 364,
+        "makh": 620,
+        "mira": 547,
+        "shyr": 155,
+        "tanya": 526,
+        "vik": 280,
+        "x": 245
+      },
+      "signer_means": {
+        "alt": [
+          24.70762910960557,
+          23.21159635360416
+        ],
+        "kar": [
+          31.21943473123776,
+          30.486367724606055
+        ],
+        "makh": [
+          27.48998543752594,
+          27.486349908741836
+        ],
+        "mira": [
+          27.240962596711896,
+          26.18649727419804
+        ],
+        "shyr": [
+          30.136439236921426,
+          29.61178091268747
+        ],
+        "tanya": [
+          28.480005329372375,
+          26.687322648151742
+        ],
+        "vik": [
+          30.332159988728304,
+          30.42664327910491
+        ],
+        "x": [
+          31.501828050259036,
+          32.411873777061906
+        ]
+      },
+      "unknown_signer_policy": "global training mean, explicitly flagged; baseline only"
+    },
+    "signer": {
+      "mode": "signer",
+      "weighting": "one equal weight per training frame",
+      "n_training_frames": 3310,
+      "target_order": [
+        "inner_perp_dist39_42_3d",
+        "outer_perp_dist39_42_3d"
+      ],
+      "global_mean": [
+        28.195929543133566,
+        27.447299233444706
+      ],
+      "signer_counts": {
+        "alt": 573,
+        "kar": 364,
+        "makh": 620,
+        "mira": 547,
+        "shyr": 155,
+        "tanya": 526,
+        "vik": 280,
+        "x": 245
+      },
+      "signer_means": {
+        "alt": [
+          24.70762910960557,
+          23.21159635360416
+        ],
+        "kar": [
+          31.21943473123776,
+          30.486367724606055
+        ],
+        "makh": [
+          27.48998543752594,
+          27.486349908741836
+        ],
+        "mira": [
+          27.240962596711896,
+          26.18649727419804
+        ],
+        "shyr": [
+          30.136439236921426,
+          29.61178091268747
+        ],
+        "tanya": [
+          28.480005329372375,
+          26.687322648151742
+        ],
+        "vik": [
+          30.332159988728304,
+          30.42664327910491
+        ],
+        "x": [
+          31.501828050259036,
+          32.411873777061906
+        ]
+      },
+      "unknown_signer_policy": "global training mean, explicitly flagged; baseline only"
+    }
+  },
+  "1": {
+    "global": {
+      "mode": "global",
+      "weighting": "one equal weight per training frame",
+      "n_training_frames": 3310,
+      "target_order": [
+        "inner_perp_dist39_42_3d",
+        "outer_perp_dist39_42_3d"
+      ],
+      "global_mean": [
+        28.19247913989655,
+        27.455409695002302
+      ],
+      "signer_counts": {
+        "alt": 550,
+        "kar": 365,
+        "makh": 625,
+        "mira": 563,
+        "shyr": 139,
+        "tanya": 533,
+        "vik": 293,
+        "x": 242
+      },
+      "signer_means": {
+        "alt": [
+          24.585106630105823,
+          23.085133793240058
+        ],
+        "kar": [
+          31.208783935985252,
+          30.507646959651105
+        ],
+        "makh": [
+          27.748562146117585,
+          27.740825911214422
+        ],
+        "mira": [
+          27.257946958252298,
+          26.204689753560928
+        ],
+        "shyr": [
+          30.030553697428147,
+          29.552311654820652
+        ],
+        "tanya": [
+          28.20977506631506,
+          26.445005719555514
+        ],
+        "vik": [
+          30.335442081514987,
+          30.425968471920168
+        ],
+        "x": [
+          31.473859863111215,
+          32.38126738563369
+        ]
+      },
+      "unknown_signer_policy": "global training mean, explicitly flagged; baseline only"
+    },
+    "signer": {
+      "mode": "signer",
+      "weighting": "one equal weight per training frame",
+      "n_training_frames": 3310,
+      "target_order": [
+        "inner_perp_dist39_42_3d",
+        "outer_perp_dist39_42_3d"
+      ],
+      "global_mean": [
+        28.19247913989655,
+        27.455409695002302
+      ],
+      "signer_counts": {
+        "alt": 550,
+        "kar": 365,
+        "makh": 625,
+        "mira": 563,
+        "shyr": 139,
+        "tanya": 533,
+        "vik": 293,
+        "x": 242
+      },
+      "signer_means": {
+        "alt": [
+          24.585106630105823,
+          23.085133793240058
+        ],
+        "kar": [
+          31.208783935985252,
+          30.507646959651105
+        ],
+        "makh": [
+          27.748562146117585,
+          27.740825911214422
+        ],
+        "mira": [
+          27.257946958252298,
+          26.204689753560928
+        ],
+        "shyr": [
+          30.030553697428147,
+          29.552311654820652
+        ],
+        "tanya": [
+          28.20977506631506,
+          26.445005719555514
+        ],
+        "vik": [
+          30.335442081514987,
+          30.425968471920168
+        ],
+        "x": [
+          31.473859863111215,
+          32.38126738563369
+        ]
+      },
+      "unknown_signer_policy": "global training mean, explicitly flagged; baseline only"
+    }
+  },
+  "2": {
+    "global": {
+      "mode": "global",
+      "weighting": "one equal weight per training frame",
+      "n_training_frames": 3310,
+      "target_order": [
+        "inner_perp_dist39_42_3d",
+        "outer_perp_dist39_42_3d"
+      ],
+      "global_mean": [
+        28.185972233971423,
+        27.432689534432484
+      ],
+      "signer_counts": {
+        "alt": 588,
+        "kar": 366,
+        "makh": 629,
+        "mira": 539,
+        "shyr": 140,
+        "tanya": 532,
+        "vik": 271,
+        "x": 245
+      },
+      "signer_means": {
+        "alt": [
+          24.791409406133415,
+          23.28020925539354
+        ],
+        "kar": [
+          31.106934884308142,
+          30.373554815197142
+        ],
+        "makh": [
+          27.675825210171464,
+          27.67463329923693
+        ],
+        "mira": [
+          27.257312507798574,
+          26.205743361005197
+        ],
+        "shyr": [
+          30.1297369978797,
+          29.626575028977484
+        ],
+        "tanya": [
+          28.330432039932333,
+          26.548389211407546
+        ],
+        "vik": [
+          30.371711997969694,
+          30.46512209034648
+        ],
+        "x": [
+          31.480035594628387,
+          32.3957819862309
+        ]
+      },
+      "unknown_signer_policy": "global training mean, explicitly flagged; baseline only"
+    },
+    "signer": {
+      "mode": "signer",
+      "weighting": "one equal weight per training frame",
+      "n_training_frames": 3310,
+      "target_order": [
+        "inner_perp_dist39_42_3d",
+        "outer_perp_dist39_42_3d"
+      ],
+      "global_mean": [
+        28.185972233971423,
+        27.432689534432484
+      ],
+      "signer_counts": {
+        "alt": 588,
+        "kar": 366,
+        "makh": 629,
+        "mira": 539,
+        "shyr": 140,
+        "tanya": 532,
+        "vik": 271,
+        "x": 245
+      },
+      "signer_means": {
+        "alt": [
+          24.791409406133415,
+          23.28020925539354
+        ],
+        "kar": [
+          31.106934884308142,
+          30.373554815197142
+        ],
+        "makh": [
+          27.675825210171464,
+          27.67463329923693
+        ],
+        "mira": [
+          27.257312507798574,
+          26.205743361005197
+        ],
+        "shyr": [
+          30.1297369978797,
+          29.626575028977484
+        ],
+        "tanya": [
+          28.330432039932333,
+          26.548389211407546
+        ],
+        "vik": [
+          30.371711997969694,
+          30.46512209034648
+        ],
+        "x": [
+          31.480035594628387,
+          32.3957819862309
+        ]
+      },
+      "unknown_signer_policy": "global training mean, explicitly flagged; baseline only"
+    }
+  },
+  "3": {
+    "global": {
+      "mode": "global",
+      "weighting": "one equal weight per training frame",
+      "n_training_frames": 3310,
+      "target_order": [
+        "inner_perp_dist39_42_3d",
+        "outer_perp_dist39_42_3d"
+      ],
+      "global_mean": [
+        28.203077707763253,
+        27.462013718172937
+      ],
+      "signer_counts": {
+        "alt": 584,
+        "kar": 359,
+        "makh": 625,
+        "mira": 523,
+        "shyr": 162,
+        "tanya": 530,
+        "vik": 283,
+        "x": 244
+      },
+      "signer_means": {
+        "alt": [
+          24.789238277254885,
+          23.286192065866935
+        ],
+        "kar": [
+          31.179170343416008,
+          30.467442046572238
+        ],
+        "makh": [
+          27.65083620172781,
+          27.65525860454636
+        ],
+        "mira": [
+          27.315061486983762,
+          26.254119474012757
+        ],
+        "shyr": [
+          30.091328196610775,
+          29.57937319815122
+        ],
+        "tanya": [
+          28.311129989061346,
+          26.540764332034037
+        ],
+        "vik": [
+          30.346741361072027,
+          30.436067759665075
+        ],
+        "x": [
+          31.338435469196444,
+          32.27461353751146
+        ]
+      },
+      "unknown_signer_policy": "global training mean, explicitly flagged; baseline only"
+    },
+    "signer": {
+      "mode": "signer",
+      "weighting": "one equal weight per training frame",
+      "n_training_frames": 3310,
+      "target_order": [
+        "inner_perp_dist39_42_3d",
+        "outer_perp_dist39_42_3d"
+      ],
+      "global_mean": [
+        28.203077707763253,
+        27.462013718172937
+      ],
+      "signer_counts": {
+        "alt": 584,
+        "kar": 359,
+        "makh": 625,
+        "mira": 523,
+        "shyr": 162,
+        "tanya": 530,
+        "vik": 283,
+        "x": 244
+      },
+      "signer_means": {
+        "alt": [
+          24.789238277254885,
+          23.286192065866935
+        ],
+        "kar": [
+          31.179170343416008,
+          30.467442046572238
+        ],
+        "makh": [
+          27.65083620172781,
+          27.65525860454636
+        ],
+        "mira": [
+          27.315061486983762,
+          26.254119474012757
+        ],
+        "shyr": [
+          30.091328196610775,
+          29.57937319815122
+        ],
+        "tanya": [
+          28.311129989061346,
+          26.540764332034037
+        ],
+        "vik": [
+          30.346741361072027,
+          30.436067759665075
+        ],
+        "x": [
+          31.338435469196444,
+          32.27461353751146
+        ]
+      },
+      "unknown_signer_policy": "global training mean, explicitly flagged; baseline only"
+    }
+  }
+}

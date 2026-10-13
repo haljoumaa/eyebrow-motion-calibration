@@ -1,0 +1,26 @@
+{
+  "phase": 4,
+  "evaluation": "whole_recordings_known_signers",
+  "fold_path": "configs/recording-folds.csv",
+  "fold_sha256": "f888c92b5c2a96fc6cc74ebddbdf01895bf00f3197f37037cd91954df58afed0",
+  "primary_seed": 42,
+  "sensitivity_seeds": [7, 19],
+  "ridge": {"alpha": 0.001},
+  "identifier_ridge": {"alpha": 0.001, "inputs": ["speaker", "sentence"]},
+  "mlp": {
+    "hidden_layer_sizes": [40],
+    "activation": "relu",
+    "solver": "adam",
+    "alpha": 0.0001,
+    "max_iter": 1500,
+    "early_stopping": false
+  },
+  "primary_metric": "mean recording joint MSE across all held-out recordings",
+  "training_weighting": "equal frames",
+  "target_scaling": false,
+  "input_scaling": "StandardScaler on complete training numeric/one-hot matrix",
+  "quality_exclusions": 0,
+  "unknown_signer_policy": "reject",
+  "unknown_sentence_policy": "zero sentence indicators before scaling; flag",
+  "supplementary_max_iter": 3000
+}

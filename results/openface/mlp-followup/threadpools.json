@@ -1,0 +1,20 @@
+[
+  {
+    "user_api": "blas",
+    "internal_api": "openblas",
+    "num_threads": 1,
+    "prefix": "libopenblas",
+    "filepath": "/Users/hareth/Documents/Codex/2026-10-11/investigate-why-the-mlp-fits-training/work/venv/lib/python3.12/site-packages/numpy/.dylibs/libopenblas64_.0.dylib",
+    "version": "0.3.23.dev",
+    "threading_layer": "pthreads",
+    "architecture": "armv8"
+  },
+  {
+    "user_api": "openmp",
+    "internal_api": "openmp",
+    "num_threads": 1,
+    "prefix": "libomp",
+    "filepath": "/Users/hareth/Documents/Codex/2026-10-11/investigate-why-the-mlp-fits-training/work/venv/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+    "version": null
+  }
+]

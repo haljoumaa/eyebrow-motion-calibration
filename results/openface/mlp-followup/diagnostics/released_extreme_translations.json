@@ -1,0 +1,12 @@
+{
+  "definition": "Any absolute released translation greater than 1,000,000; descriptive flag, not an exclusion or claimed physical threshold",
+  "frames": 60,
+  "low_confidence_frames": 60,
+  "recordings": [
+    "st-dev_upala-makh",
+    "st-dom_post-tanya",
+    "st-papa_beg-alt",
+    "st-reb_tanc-tanya",
+    "st-sob_est-makh"
+  ]
+}

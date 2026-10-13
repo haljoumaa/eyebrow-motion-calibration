@@ -1,0 +1,14 @@
+{
+  "input_sha256": {
+    "results/openface/frame-split/historical_summary.csv": "2c6ca789a4a4be5e1b3af9ceea55fca09cb0d8e8a215bdda6c8846b5a37a3295",
+    "results/openface/recording-split/summary.csv": "abe90594977bc405c96a1a851bbaf9699d1f85e55136b0dcd72aa6bf244370bb",
+    "results/openface/recording-split/recording_metrics.csv": "046254b2769c978bad80b61a56a3e704274693f172ea9439980b2c67388c6572",
+    "scripts/build_figures.py": "d02050d8c31b10920fc913687f95ad3a4f6d3f32e9694c00df0a3ee830745e8a"
+  },
+  "output_sha256": {
+    "figures/02_validation_comparison.png": "9319ddcfa06c73dd57e096567fb34111c8078c49c6c7d8e669e631856fa870a6",
+    "figures/03_recording_differences.png": "6ecb9d3356ff36de1018b23287afd40b746de75cc7fd76847da7a2450eeb8857",
+    "figures/recording_order.csv": "4fa4800f4041096b0a1a90f13910f556e6c9362f7ead861c9885468abaf0d31f"
+  },
+  "independent_human_validation": false
+}

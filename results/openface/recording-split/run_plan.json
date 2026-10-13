@@ -1,0 +1,138 @@
+{
+  "recorded_before_fitting_at_oslo": "2026-10-11T10:48:25.754473+02:00",
+  "config": {
+    "phase": 4,
+    "evaluation": "whole_recordings_known_signers",
+    "fold_path": "configs/recording-folds.csv",
+    "fold_sha256": "f888c92b5c2a96fc6cc74ebddbdf01895bf00f3197f37037cd91954df58afed0",
+    "primary_seed": 42,
+    "sensitivity_seeds": [
+      7,
+      19
+    ],
+    "ridge": {
+      "alpha": 0.001
+    },
+    "identifier_ridge": {
+      "alpha": 0.001,
+      "inputs": [
+        "speaker",
+        "sentence"
+      ]
+    },
+    "mlp": {
+      "hidden_layer_sizes": [
+        40
+      ],
+      "activation": "relu",
+      "solver": "adam",
+      "alpha": 0.0001,
+      "max_iter": 1500,
+      "early_stopping": false
+    },
+    "primary_metric": "mean recording joint MSE across all held-out recordings",
+    "training_weighting": "equal frames",
+    "target_scaling": false,
+    "input_scaling": "StandardScaler on complete training numeric/one-hot matrix",
+    "quality_exclusions": 0,
+    "unknown_signer_policy": "reject",
+    "unknown_sentence_policy": "zero sentence indicators before scaling; flag",
+    "supplementary_max_iter": 3000
+  },
+  "input_provenance": {
+    "github_commit": "c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0",
+    "input_sha256": {
+      "research/upstream-assets.json": "5ead70047cc70939096e4c192aef649a0576e0a24e3cd67f9b9979d363b07c19",
+      "research/upstream-review/github/processing/saved/open_face_with_distances.csv": "603bb0b91c392335fee3dcfefa2c2845d90f5445c951ae47d710a5321d6cdcbf",
+      "research/upstream-review/github/processing/saved/additional_stats_from_elan.json": "85bfeb318134ded251b9a9ee485bbeff653d4265135c09866f5244fb8871c21d"
+    },
+    "filter": "video_name in videos_no_brows AND sType == 'st'",
+    "released_frames": 18169,
+    "neutral_frames": 4414,
+    "neutral_recordings": 63,
+    "neutral_signers": 8,
+    "low_confidence_rows_retained": 65,
+    "success_zero_rows_retained": 65,
+    "target_order": [
+      "inner_perp_dist39_42_3d",
+      "outer_perp_dist39_42_3d"
+    ],
+    "numeric_pose_order": [
+      "pose_Rx",
+      "pose_Ry",
+      "pose_Rz",
+      "pose_Tx",
+      "pose_Ty",
+      "pose_Tz"
+    ],
+    "source_order_preserved": true,
+    "excluded_for_quality": 0,
+    "quality_note": "Retained flags do not establish whether coordinates were previously repaired."
+  },
+  "source_sha256": {
+    "src/facial_motion/openface_recording.py": "3708728a353c815608a25570cfbf2c0d69bd18c21d7fd0ea122da189d45d1da8",
+    "src/facial_motion/openface_reproduction.py": "8c818d2f6209cca3e00e23eb53c3768899a2669170f96e2d99dd27975ce38a0b",
+    "src/facial_motion/openface_baselines.py": "9c7559d3e53651c92230b0cebadb95f73ff048c055f828b5cfba743bbbee689e",
+    "src/facial_motion/openface_data.py": "4ae94db970e469ab934d3f38c2640acad86ad55be2d11588d2864f599eefa8c7",
+    "tests/test_openface_recording.py": "6d7be861e663a2a7c06528d386852a19e663ecfe096aea766f1101a877df320a",
+    "configs/openface-recording-evaluation.json": "cab43a835fb6fcade1aa9481b4f77fec17181ea53c5c280e1dd62e46a1c2f52e",
+    "docs/openface-protocol.md": "e8b19cc223175b1b334c5d40ba1563f76170a4abfde67a1de327b39a69934408",
+    "src/facial_motion/openface_bundle.py": "42385fca284ee1e22780f27eb8b4a17a59b6282210bffd2d387156a69e12df65"
+  },
+  "target_order": [
+    "inner_perp_dist39_42_3d",
+    "outer_perp_dist39_42_3d"
+  ],
+  "numeric_feature_order": [
+    "pose_Rx",
+    "pose_Rx_cos",
+    "pose_Tx",
+    "pose_Ry",
+    "pose_Ry_cos",
+    "pose_Ty",
+    "pose_Rz",
+    "pose_Rz_cos",
+    "pose_Tz"
+  ],
+  "estimator_defaults": {
+    "ridge": {
+      "alpha": 0.001,
+      "copy_X": true,
+      "fit_intercept": true,
+      "max_iter": null,
+      "positive": false,
+      "random_state": null,
+      "solver": "auto",
+      "tol": 0.0001
+    },
+    "mlp_seed42": {
+      "activation": "relu",
+      "alpha": 0.0001,
+      "batch_size": "auto",
+      "beta_1": 0.9,
+      "beta_2": 0.999,
+      "early_stopping": false,
+      "epsilon": 1e-08,
+      "hidden_layer_sizes": [
+        40
+      ],
+      "learning_rate": "constant",
+      "learning_rate_init": 0.001,
+      "max_fun": 15000,
+      "max_iter": 1500,
+      "momentum": 0.9,
+      "n_iter_no_change": 10,
+      "nesterovs_momentum": true,
+      "power_t": 0.5,
+      "random_state": 42,
+      "shuffle": true,
+      "solver": "adam",
+      "tol": 0.0001,
+      "validation_fraction": 0.1,
+      "verbose": false,
+      "warm_start": false
+    }
+  },
+  "thread_policy": "one BLAS thread during fitting/scoring",
+  "convergence_policy": "retain incomplete primary; audit inputs/scaling; record one fresh same-seed 3000-iteration supplementary remedy before scoring"
+}

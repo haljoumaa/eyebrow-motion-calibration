@@ -1,0 +1,8 @@
+topic,finding,kind
+Integrity,"Three upstream hashes, numerical source/configuration hashes, retained artifacts and prediction arithmetic pass. One protocol prose hash is stale in three original run records.",observation
+Failure extent,MLP loses to ridge on 58/60/57 of 63 recordings at seeds 42/7/19; all eight signers and all ten sentences have positive mean excess error.,observation
+Pose coverage,Same-signer robust pose novelty versus excess joint MSE: Spearman 0.095/0.147/0.165. Global range novelty association at seed 42: 0.020.,association
+Identity,Zero of 63 held-out signer-sentence pairs are in training; every signer and sentence is individually known. There is no seen-pair contrast.,observation
+Offsets,Squared recording-level bias explains 95.6%/97.5%/97.1% of equal-recording MLP joint MSE at seeds 42/7/19.,observation
+Follow-up,"All folds select alpha=100 for each MLP arm. Selected policy retains signer and removes sentence. Its joint MSE is 2.623 (seed 42), range 2.597–2.623; fixed ridge is 2.471.",exploratory observation
+Explanation,Weak regularization with non-additive identity dependence is the strongest supported explanation. Identity novelty alone and anatomical causes are not identified.,"supported interpretation, not causal proof"

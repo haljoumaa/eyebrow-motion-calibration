@@ -1,0 +1,9 @@
+model,seed,subset,n_recordings,n_frames,equal_recording_joint_mse
+ridge,,all_frames,63,4414,2.471307607057034
+ridge,,confidence_ge_0.8,63,4349,2.3800109470662463
+mlp,42.0,all_frames,63,4414,31.796759502969763
+mlp,42.0,confidence_ge_0.8,63,4349,32.35597323472832
+mlp,7.0,all_frames,63,4414,40.849768993657385
+mlp,7.0,confidence_ge_0.8,63,4349,41.14591798712831
+mlp,19.0,all_frames,63,4414,40.20323302163572
+mlp,19.0,confidence_ge_0.8,63,4349,40.493104821927716

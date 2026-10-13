@@ -1,0 +1,36 @@
+{
+  "review_date": "2026-10-10",
+  "github_repository": "https://github.com/kuzanna2016/non-manuals-2021",
+  "github_commit": "c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0",
+  "osf_node": "https://osf.io/jvc42/",
+  "purpose": "Pinned released numerical inputs for local reproduction; external assets are excluded from distribution.",
+  "assets": [
+    {
+      "origin": "github",
+      "path": "processing/saved/additional_stats_from_elan.json",
+      "url": "https://raw.githubusercontent.com/kuzanna2016/non-manuals-2021/c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0/processing/saved/additional_stats_from_elan.json",
+      "bytes": 36934,
+      "sha256": "85bfeb318134ded251b9a9ee485bbeff653d4265135c09866f5244fb8871c21d",
+      "git_blob_sha": "7f2e9d29d115d890f0ce2f333ec403a0604820d6",
+      "local_path": "research/upstream-review/github/processing/saved/additional_stats_from_elan.json"
+    },
+    {
+      "origin": "github",
+      "path": "processing/saved/cross-validation/logs.json",
+      "url": "https://raw.githubusercontent.com/kuzanna2016/non-manuals-2021/c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0/processing/saved/cross-validation/logs.json",
+      "bytes": 568146,
+      "sha256": "4fc26d1ddfdf53a8badb2fad3775d80d6cead72d218e4e666a62e158245331ea",
+      "git_blob_sha": "c15b0d247d2ed00dd7cf10e32b5070c6adc1e206",
+      "local_path": "research/upstream-review/github/processing/saved/cross-validation/logs.json"
+    },
+    {
+      "origin": "github",
+      "path": "processing/saved/open_face_with_distances.csv",
+      "url": "https://raw.githubusercontent.com/kuzanna2016/non-manuals-2021/c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0/processing/saved/open_face_with_distances.csv",
+      "bytes": 30159355,
+      "sha256": "603bb0b91c392335fee3dcfefa2c2845d90f5445c951ae47d710a5321d6cdcbf",
+      "git_blob_sha": "9caa1bf2e1318859f072540b52da037e1d40cadf",
+      "local_path": "research/upstream-review/github/processing/saved/open_face_with_distances.csv"
+    }
+  ]
+}

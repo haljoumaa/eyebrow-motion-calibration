@@ -1,0 +1,140 @@
+{
+  "archived_joint_validation_mse": 0.38190603272066037,
+  "primary_seed": 42,
+  "fixed_seed_results": [
+    {
+      "seed": 42,
+      "joint_mse": 0.42923816560740125,
+      "all_fits_complete": true,
+      "difference_from_archive": 0.047332132886740874,
+      "relative_difference_percent": 12.393659390387612
+    },
+    {
+      "seed": 7,
+      "joint_mse": 0.430413745470276,
+      "all_fits_complete": true,
+      "difference_from_archive": 0.04850771274961563,
+      "relative_difference_percent": 12.701478529692633
+    },
+    {
+      "seed": 19,
+      "joint_mse": 0.4063830042058412,
+      "all_fits_complete": true,
+      "difference_from_archive": 0.024476971485180854,
+      "relative_difference_percent": 6.409160732761765
+    }
+  ],
+  "archived_seed": "unrecorded",
+  "historical_package_versions": "unrecorded in inspected log",
+  "alpha": "explicit 0.0001; omitted in archived CV record; later deployment 0.1 not used",
+  "numerical_design_matches_inspected_helper": true,
+  "category_difference": "actual sorted category names, training-fitted; legacy labels use first-observed names on sorted class values",
+  "target_distribution_diagnostics": [
+    {
+      "fold": 0,
+      "partition": "training",
+      "current_joint_target_mean": 27.821614388289138,
+      "archived_joint_target_mean": 27.821614388289134,
+      "archived_per_target_mean": [
+        28.195929543133566,
+        27.447299233444706
+      ],
+      "target_mean_difference": 3.552713678800501e-15,
+      "current_mean_target_sample_std": 4.228878990510124,
+      "archived_mean_target_sample_std": 4.228878990510124
+    },
+    {
+      "fold": 0,
+      "partition": "validation",
+      "current_joint_target_mean": 27.859123291934672,
+      "archived_joint_target_mean": 27.859123291934672,
+      "archived_per_target_mean": [
+        28.2112808891337,
+        27.50696569473564
+      ],
+      "target_mean_difference": 0.0,
+      "current_mean_target_sample_std": 4.107883762360772,
+      "archived_mean_target_sample_std": 4.107883762360772
+    },
+    {
+      "fold": 1,
+      "partition": "training",
+      "current_joint_target_mean": 27.82394441744943,
+      "archived_joint_target_mean": 27.82394441744943,
+      "archived_per_target_mean": [
+        28.192479139896555,
+        27.455409695002302
+      ],
+      "target_mean_difference": 0.0,
+      "current_mean_target_sample_std": 4.242329273573295,
+      "archived_mean_target_sample_std": 4.242329273573295
+    },
+    {
+      "fold": 1,
+      "partition": "validation",
+      "current_joint_target_mean": 27.85213742552111,
+      "archived_joint_target_mean": 27.85213742552111,
+      "archived_per_target_mean": [
+        28.221625848114236,
+        27.482649002927985
+      ],
+      "target_mean_difference": 0.0,
+      "current_mean_target_sample_std": 4.066153971832601,
+      "archived_mean_target_sample_std": 4.066153971832601
+    },
+    {
+      "fold": 2,
+      "partition": "training",
+      "current_joint_target_mean": 27.80933088420195,
+      "archived_joint_target_mean": 27.809330884201955,
+      "archived_per_target_mean": [
+        28.185972233971423,
+        27.432689534432484
+      ],
+      "target_mean_difference": -3.552713678800501e-15,
+      "current_mean_target_sample_std": 4.125495921980354,
+      "archived_mean_target_sample_std": 4.125495921980354
+    },
+    {
+      "fold": 2,
+      "partition": "validation",
+      "current_joint_target_mean": 27.89595155147142,
+      "archived_joint_target_mean": 27.895951551471423,
+      "archived_per_target_mean": [
+        28.241134778016576,
+        27.55076832492627
+      ],
+      "target_mean_difference": -3.552713678800501e-15,
+      "current_mean_target_sample_std": 4.411375149240393,
+      "archived_mean_target_sample_std": 4.411375149240393
+    },
+    {
+      "fold": 3,
+      "partition": "training",
+      "current_joint_target_mean": 27.8325457129681,
+      "archived_joint_target_mean": 27.832545712968095,
+      "archived_per_target_mean": [
+        28.203077707763253,
+        27.462013718172937
+      ],
+      "target_mean_difference": 3.552713678800501e-15,
+      "current_mean_target_sample_std": 4.145330519616822,
+      "archived_mean_target_sample_std": 4.145330519616822
+    },
+    {
+      "fold": 3,
+      "partition": "validation",
+      "current_joint_target_mean": 27.826349121022208,
+      "archived_joint_target_mean": 27.82634912102221,
+      "archived_per_target_mean": [
+        28.18984934481825,
+        27.46284889722617
+      ],
+      "target_mean_difference": -3.552713678800501e-15,
+      "current_mean_target_sample_std": 4.356027094583016,
+      "archived_mean_target_sample_std": 4.356027094583016
+    }
+  ],
+  "scope": "procedural reproduction on pinned released data, not a promise of the exact historical random state or run inputs",
+  "no_seed_selection_or_tuning_for_archive_agreement": true
+}
