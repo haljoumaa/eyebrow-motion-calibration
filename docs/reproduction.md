@@ -1,8 +1,20 @@
 # Reproduction
 
-## Installation and dependencies
+## What is available
 
-Run from the repository root. The package declares Python 3.11–3.12 support; exact reproduction and saved bundle loading use CPython 3.12.5 and the recorded package versions on macOS Apple Silicon. `requirements.txt` lists direct dependencies; `requirements-lock.txt` pins runtime and test dependencies. Fitting and saved-weight checks use one BLAS thread. Numerical equivalence on other environments must be checked.
+| Task | Required inputs |
+|---|---|
+| Check saved OpenFace predictions and metrics | Pinned OpenFace inputs, retrieved below |
+| Rerun the fixed OpenFace experiments or exploratory follow-up | The same inputs and the recorded numerical environment |
+| Run the supplied ridge inference example | Included bundle and example CSV; recorded bundle runtime |
+| Check or replay the Face Landmarker pilot | Original local pilot inputs and, for checking, saved predictions and measurement caches |
+| Check the published 2024 tables | Released intermediate deviations, retrieved separately |
+
+Pilot videos, reviewed manifests, reference intervals, annotations, frame-level results, and landmark caches are excluded from this release. The aggregate pilot summary is included. All output directories in the commands below must be fresh; choose a new name when repeating a procedure.
+
+## Installation
+
+Run from the repository root. Python 3.11–3.12 is supported. Historical runs used CPython 3.12.5 on macOS Apple Silicon with the versions in `requirements-lock.txt`. Use that environment for numerical replay; equivalence on other platforms must be checked. Saved bundles require their recorded Python and package versions.
 
 ```bash
 python3.12 -m venv .venv
@@ -12,22 +24,24 @@ python -m pip install --no-deps -e .
 python -m pip check
 ```
 
-For follow-up commands alone, install `scripts/mlp_followup/requirements-lock.txt` in a separate Python 3.12.5 environment. Use the full lock for the complete test suite and pilot extraction. No OpenFace executable or upstream pickle is needed. Installation and input retrieval require network access.
+`requirements.txt` lists direct dependencies; the full lock also includes test dependencies. The exploratory follow-up can use `scripts/mlp_followup/requirements-lock.txt` in a separate CPython 3.12.5 environment, but the full lock is needed for the complete test suite and pilot extraction. Installation and retrieval need network access. OpenFace fitting and saved-weight checks use one BLAS thread.
 
-## Inputs and tests
+## Retrieve OpenFace inputs and run tests
+
+Working directory: repository root, with the environment above active.
 
 ```bash
 python scripts/fetch_data.py --group openface
 python -B -m pytest -q -p no:cacheprovider
 ```
 
-Retrieval uses the pinned commit and URLs in `research/upstream-assets.json` and checks SHA-256 hashes. Six tests require these external inputs and explicitly skip when they are absent: the four `packet` tests in `tests/test_openface_baselines.py`, `test_real_historical_folds_scaler_and_legacy_values`, and `test_fixed_config_and_real_fold_inventory`. Run the full suite after retrieval; skips do not count as scientific verification. The loader preserves source row order and all 65 low-confidence flags.
+Retrieval writes inputs under `research/upstream-review/` and checks SHA-256 hashes against `research/upstream-assets.json`, pinned to upstream commit `c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0`. An OpenFace executable is not required.
 
-The original local pilot manifest lists 35 videos, including 23 pitch clips and 12 yaw/roll clips outside scope; 22 pitch clips were included. The publication excludes `data/manifest.csv`, `data/references.csv`, `data/annotations.csv`, `data/qa_frames.csv`, `data/audit_review.json`, `results/face-landmarker/predictions.csv`, `results/face-landmarker/recording_metrics.csv`, `results/face-landmarker/run_metadata.json` and `figures/01_landmark_measurement.png`. These link individual measurements or review decisions to identifiable source videos. The unchanged condition-level `results/face-landmarker/summary.csv` retains the aggregate experiment results; no synthetic observations replace the excluded data.
+The loader selects 4,414 neutral frames and retains the 65 confidence-below-0.8 flags. Retrieve inputs before testing: six data-dependent tests skip when inputs are absent. A complete run should pass without those skips.
 
-## Check saved results without fitting
+## Check saved OpenFace results
 
-The two `predictions-public.csv` tables contain 123,592 fixed-experiment and 176,560 exploratory prediction rows. Source observations and fixed-experiment residuals are omitted. Restore those columns from pinned inputs in an isolated verification copy:
+Start at the repository root with retrieved inputs. This creates a verification copy and restores observations alongside the saved predictions.
 
 ```bash
 python scripts/prepare_verification_checkout.py --output tmp/check
@@ -37,13 +51,13 @@ python scripts/verify_openface.py
 python -B scripts/mlp_followup/verify_followup.py
 ```
 
-Run subsequent commands from this copy. `PYTHONPATH` selects its source instead of the parent checkout's editable installation. The helper copies the repository and verified inputs, restores the 4,414-row neutral subset, and joins observations to saved predictions. It checks the restored CSVs against their original hashes without fitting or recomputing predictions.
+The helper verifies the input hashes, restores the neutral subset, and joins observations to 123,592 fixed-experiment and 176,560 follow-up prediction rows. It checks restored CSV hashes without fitting models. The two verification commands check saved weights, splits, preprocessing, and metric arithmetic; success is reported as `PASS` or JSON with `"passed": true`.
 
-Use `--inputs /path/to/input-root` for existing inputs with the manifest's layout. For exact pilot arithmetic, `--inputs /path/to/private-input-root --pilot-cache /path/to/data/cache` also requires the excluded original pilot inputs and result files under that input root. The helper copies them and checks input/cache hashes against the original local run metadata. Then run `python scripts/verify_pilot.py` inside the copy. Without these files, pilot arithmetic cannot be checked from the aggregate summary alone. Frame-split tables and source-study reference scores remain separate.
+`PYTHONPATH` selects the copy's source instead of the parent checkout's editable installation. For inputs already stored elsewhere, add `--inputs /path/to/input-root` to the helper; files must follow the paths in `research/upstream-assets.json`.
 
-## Rerun fixed experiments
+## Rerun fixed OpenFace experiments
 
-Choose fresh output directories:
+Working directory: the verification copy created above, with its `PYTHONPATH` set.
 
 ```bash
 python -m facial_motion.openface_baselines --output tmp/repeat/baselines
@@ -51,23 +65,26 @@ python -m facial_motion.openface_reproduction --output tmp/repeat/frame-split
 python -m facial_motion.openface_recording --output tmp/repeat/recording-split --save-bundles
 ```
 
-For the separate pilot, first supply the original reviewed manifest, reference intervals and annotations locally. Obtain the videos from the [original OSF project](https://osf.io/jvc42/); `fetch_data.py` uses the supplied manifest and checks its hashes. The following commands regenerate excluded outputs locally:
+These produce baseline tables, frame-split tables and fit records, and whole-recording predictions, metrics, and inference bundles. Compare the new tables with the corresponding directories under `results/openface/`; timestamps and fit times will differ. Frame-split weights were not archived, so that experiment requires refitting.
 
-```bash
-python scripts/fetch_data.py --group pilot
-python scripts/extract_pilot.py
-python -m facial_motion evaluate --output tmp/repeat/face-landmarker
-```
-
-Without the original reviewed inputs, `python -m facial_motion inventory` creates a provisional manifest from OSF. Set inclusion decisions, reference intervals and visible-state annotations locally using the [pilot protocol](methodology.md#face-landmarker-pilot). Source videos alone do not recover the original manual decisions, so this route cannot promise exact historical pilot values. Pilot commands fail clearly if required local artifacts are absent.
-
-Extraction processes included clips at decoded native timestamps with a fresh tracker per clip. It writes measurements and landmarks to `data/cache/` and metadata to `results/pilot/`. The evaluator checks source and model hashes. Frame-split weights and pilot fitted estimators were not archived. OpenFace settings, scalers and numerical outputs remain; pilot settings and the aggregate summary remain, while its recorded preprocessing is in the excluded local run metadata. Model replay requires refitting. `scripts/verify_pilot.py` checks saved predictions against measurement caches matching the recorded hashes.
-
-After restoring the complete OpenFace CSVs, the excluded original pilot inputs and result files, and matching pilot measurement caches, `python scripts/reproduce.py --output tmp/fixed-repeat` reruns and compares all fixed experiments. It uses `1e-12` relative and absolute tolerances and replays bundles in a separate process. The exploratory follow-up is run separately.
+Frame validation uses four `ShuffleSplit` partitions with test size 0.25 and random state 0. Whole-recording validation uses four folds in `configs/recording-folds.csv`. Fixed ridge uses alpha 0.001; the fixed MLP uses 40 ReLU units, Adam, alpha 0.0001, and at most 1,500 iterations. Seed 42 is primary, with seeds 7 and 19 for sensitivity. Settings are in `configs/`.
 
 ## Exploratory follow-up
 
-Run from the verification copy above, using a fresh `RUN` directory. Diagnostics and model probing require the restored fixed predictions and neutral rows.
+Working directory: the verification copy, with restored fixed predictions and neutral rows. Grouped inner validation selects regularization and MLP inputs within each outer training fold. The grids and fit settings are recorded in `results/openface/mlp-followup/plan.json`.
+
+To rebuild summaries and figures from retained fits:
+
+```bash
+RUN="$PWD/tmp/followup-summary"
+python -B scripts/mlp_followup/retrieve_inputs.py --output "$RUN/inputs"
+python -B scripts/mlp_followup/diagnostics.py --inputs "$RUN/inputs" --output "$RUN/diagnostics"
+python -B scripts/mlp_followup/model_probe.py --output "$RUN/probe"
+python -B scripts/mlp_followup/verify_followup.py --output "$RUN/verification"
+python -B scripts/mlp_followup/summarize.py --diagnostics "$RUN/diagnostics" --probe "$RUN/probe" --output "$RUN/summary"
+```
+
+To refit all 184 models and generate new summaries:
 
 ```bash
 RUN="$PWD/tmp/followup-repeat"
@@ -79,9 +96,13 @@ python -B scripts/mlp_followup/verify_followup.py --results "$RUN/results" --out
 python -B scripts/mlp_followup/summarize.py --results "$RUN/results" --diagnostics "$RUN/diagnostics" --probe "$RUN/probe" --output "$RUN/summary"
 ```
 
-Each step rejects an existing output directory. Outputs inside the repository must be under ignored `tmp/`. The [methods](methodology.md#exploratory-mlp-follow-up) describe grouped selection, 184 fits and sensitivity seeds. Summaries contain tables and PNG/SVG figures, using “MLP (pose + signer)” for the historical `no_sentence` arm. To rebuild diagnostics without fitting, omit the `followup.py` step and omit `--results` from model probing, verification and summarization; those commands then use retained fits. Supply the fresh diagnostic and probe directories as above. Compare tables, weights, preprocessing, selections and convergence; timestamps, timings and SVG identifiers can differ.
+Summaries appear in `$RUN/summary/diagnostics/` and PNG/SVG figures in `$RUN/summary/figures/`. Verification should report `"passed": true`. Compare scores, weights, preprocessing, selected settings, and convergence status; timings and SVG identifiers may differ. Each step rejects existing output directories. Outputs inside the repository must be under ignored `tmp/`.
 
-## Inference, figures and literature arithmetic
+Input-arm identifiers are `full` (pose + signer + sentence), `no_sentence` (pose + signer), and `pose_only` (pose). The separate fixed `identifier_ridge` uses signer and sentence indicators without pose.
+
+## Ridge inference example
+
+Working directory: repository root or verification copy, using the recorded bundle runtime.
 
 ```bash
 python -m facial_motion.openface_bundle \
@@ -90,18 +111,60 @@ python -m facial_motion.openface_bundle \
   --output tmp/ridge-predictions.csv
 ```
 
-`examples/openface-input.csv` uses synthetic pose values for API illustration and category strings from the fitted vocabulary; it contains no experimental observations. The example requires `pose_Rx`, `pose_Ry`, `pose_Rz`, `pose_Tx`, `pose_Ty`, `pose_Tz`, `speaker` and `sentence`. Rotations are radians; translations retain released units. Subtract predicted neutral distances from observations for correction. Numeric inputs must be finite and category strings nonempty. Missing required columns, duplicate columns and invalid rows are rejected. Unknown signers are rejected; unknown sentences receive zero indicators before scaling and are flagged. Row order is preserved, with zero-based `input_position` in the output. Observed target columns are ignored. Bundles require OpenFace inputs and the recorded runtime versions.
+The example uses synthetic pose values and known categories. Output is a CSV of predicted neutral distances, preserving input order with zero-based `input_position`. Correction subtracts those predictions from observed eyebrow distances.
 
-The supplied bundle is an evaluation-fold fit; no full-data deployment fit is provided. `--expected-sha256` checks a bundle against its manifest hash. Regenerate other recording-fold bundles with `--save-bundles`; their weights and mean estimators are in `model_runs.json` and `training_means.json`. Follow-up outer-fit weights are in `fit_runs.json`, with scalers and categories in `preprocessing.json`. These records support inference, not resumed optimization.
+Required input columns are `pose_Rx`, `pose_Ry`, `pose_Rz`, `pose_Tx`, `pose_Ty`, `pose_Tz`, `speaker`, and `sentence`. Rotations are radians; translations retain released units. Numerical values must be finite and categories nonempty. Unknown signers are rejected; unknown sentences receive zero indicators before scaling and are flagged. Observed target columns are ignored.
 
-`python scripts/build_figures.py` rebuilds the two retained OpenFace figures from saved tables. To regenerate the excluded pilot figure locally, add `--pilot-recording LOCAL_RECORDING_ID` with the original selected recording ID and matching landmark NPZ and measurement CSV. The helper does not copy landmark NPZs; supply them locally or regenerate them by extraction. The pilot figure remains outside publication; its measured geometry and time trace have not been altered. The separate `python -m facial_motion experiment-figures` command also takes `--recording-ids` with the three original locally selected trajectory examples instead of embedding video IDs in the code. Run figure generation only in an isolated copy because it writes `figures/` and provenance. The follow-up summary command rebuilds its diagnostic figure. Recording-order maps identify plotted recordings. Historical figure labels are explained in the [methods](methodology.md#grouped-selection).
+The supplied bundle is a fold-specific evaluation fit. Use `--expected-sha256` to check the hash listed in `bundle_manifest.json`. Other fold bundles can be generated with `--save-bundles` in the recording experiment.
 
-Optional literature arithmetic uses `python scripts/fetch_data.py --group literature`, then `python scripts/reproduce_published_tables.py`. This checks 48 published entries from released intermediate deviations; it does not repeat raw Holistic extraction or significance tests.
+## Face Landmarker pilot with original local inputs
 
-## Licensing and data use
+Working directory: repository root. Supply the original reviewed `data/manifest.csv`, `data/references.csv`, and `data/annotations.csv`. The manifest supplies video URLs and hashes. Retrieval includes the model pinned in `models/model_metadata.json`.
 
-The [MIT License](../LICENSE) covers the original code in `src/`, `scripts/` and `tests/`. It does not cover datasets, research outputs, figures, fitted model artifacts or third-party materials. Dependencies and the external Face Landmarker model retain their own terms. Attribution is in [Sources and attribution](methodology.md#sources-and-attribution).
+```bash
+python scripts/fetch_data.py --group pilot
+python scripts/extract_pilot.py
+python -m facial_motion evaluate --output tmp/repeat/face-landmarker
+```
 
-The [pinned OpenFace repository](https://github.com/kuzanna2016/non-manuals-2021/tree/c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0) has no dataset license in its published READMEs. Retrieve its checksum-pinned numerical inputs with `python scripts/fetch_data.py --group openface`. The checked recording metadata contains codes, frame rates and frame counts, without names or source-video links. No reasonable code-to-person link was established in the inspected source materials; OpenFace predictions, recording maps, diagnostics, fitted weights and preprocessing remain unchanged. This is a targeted linkage assessment, not a claim that codes guarantee anonymity. The [original collection paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233731) also reports consent for research and publication; it does not supply a separate dataset license.
+Extraction writes landmarks and measurements to `data/cache/` and extraction metadata to `results/pilot/`. Evaluation writes predictions, recording-level metrics, a summary, and run metadata to the requested directory. It holds out each camera distance in turn and checks source and model hashes.
 
-The [OSF project](https://osf.io/jvc42/) has no selected project license or documented disclosure basis for this release's participant-linked pilot artifacts. Those artifacts and their real-frame figure are excluded. The aggregate pilot summary and the 48-entry arithmetic comparison with published literature tables remain unchanged; neither contains a pilot recording-ID map or frame trace. Source references and download specifications are retained for local reproduction, subject to source terms.
+`results/face-landmarker/summary.csv` contains mean recording-level RMSE, MAE, and AUROC by camera distance, condition, method, and evaluation scope. `supported_pose` scores frames within the training pitch range; `complete_clip_raw_fallback` retains raw measurements outside it. Alternating clips use AUROC to distinguish annotated raised and neutral states.
+
+To check saved pilot arithmetic, supply the original pilot input/result files and measurement caches. Start at the repository root:
+
+```bash
+python scripts/prepare_verification_checkout.py \
+  --inputs /path/to/private-input-root \
+  --pilot-cache /path/to/data/cache \
+  --output tmp/pilot-check
+cd tmp/pilot-check
+export PYTHONPATH="$PWD/src"
+python scripts/verify_pilot.py
+```
+
+The private input root must also contain the pinned OpenFace inputs. Pilot verification reports `PASS` after checking saved predictions against caches and recalculating metrics. The aggregate summary alone cannot support this check.
+
+For a combined replay from the measurement caches, the copy also needs the external model and original extraction metadata under their recorded paths. Then `python scripts/reproduce.py --output tmp/fixed-repeat` reruns all fixed OpenFace and pilot experiments, compares tables and fitted state at `1e-12` relative/absolute tolerance, and reloads bundles in a separate process. Run the exploratory follow-up separately.
+
+## Figures and published-table checks
+
+Working directory: verification copy.
+
+```bash
+python scripts/build_figures.py
+python scripts/fetch_data.py --group literature
+python scripts/reproduce_published_tables.py
+```
+
+Figure generation writes the two fixed OpenFace figures and provenance to `figures/`. The literature command checks 48 published table entries from released intermediate deviations and reports `PASS`; it does not rerun video extraction or significance tests.
+
+The follow-up summary commands above rebuild the diagnostic figure. For local pilot figures, `build_figures.py --pilot-recording LOCAL_RECORDING_ID` requires matching landmark NPZ and measurement CSV files; the verification helper copies measurement caches only. `python -m facial_motion experiment-figures --recording-ids ID1 ID2 ID3` uses three locally selected pilot recordings.
+
+## Data use
+
+The [MIT License](../LICENSE) covers original code in `src/`, `scripts/`, and `tests/`. Datasets, research outputs, figures, fitted model artifacts, dependencies, and third-party models have separate terms.
+
+OpenFace inputs are retrieved from the [pinned upstream repository](https://github.com/kuzanna2016/non-manuals-2021/tree/c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0); its inspected READMEs contain no dataset license. Pilot videos are sourced from [OSF](https://osf.io/jvc42/); the inspected project has no selected project license. Consult the source terms before reuse. Recording codes alone do not establish anonymity.
+
+The [bibliography](../research/references.bib) credits the source studies, OpenFace 2.0, and the facial geometry work.

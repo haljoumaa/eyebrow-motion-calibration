@@ -43,8 +43,8 @@
   },
   "result_sha256": {
     "results/openface/mlp-followup/diagnostics/associations.csv": "31589071776a65b2b5c9129bb9fbbdf25c68503f8165df31010375d7d9ef7e2a",
-    "figures/mlp-followup/diagnostic_figure.png": "180eea0a639ecde12bfbc61c42d1fca0f076fe1bbd7c85e799b33189991653c7",
-    "figures/mlp-followup/diagnostic_figure.svg": "e8f80224c4043b4d5ad846b2a308fb14025592b134470570ef636db4473e8280",
+    "figures/mlp-followup/diagnostic_figure.png": "bdad3f8da3ecbe8609162822c160ab21880cbfc930ef9eb4a09a1ea3bd6f8e51",
+    "figures/mlp-followup/diagnostic_figure.svg": "eabf254f27b9ba50e6a7ad84394da62518855e0d47d31c7b98a4c2fac6c5d7d6",
     "results/openface/mlp-followup/diagnostics/diagnostic_summary.json": "1e1355504881f94479cbfe0ccd2d9a4a859b5ad9fbf27a2c1d0757cd358918db",
     "results/openface/mlp-followup/diagnostics/errors_by_fold.csv": "8090e7bf99923226769fcfa7d38ac64cfe3df3d5d696e094ec30fd1f8261e817",
     "results/openface/mlp-followup/diagnostics/errors_by_sentence.csv": "ea69814bd6a989fbec9348ccc72695db64b7d8e5a1e962eaadedb6f75ae4fa53",
@@ -65,8 +65,8 @@
     "results/openface/mlp-followup/diagnostics/identity_coverage.csv": "a578710aad6d099a8fc81c8e6dabfe68e6f540fc9e7b53ae4563313468f173ed",
     "results/openface/mlp-followup/diagnostics/identity_interaction_probe.csv": "332736f6e2c78a918e63607ecbf004bde738a31cf3caadcbfedf6426aa5f55a2",
     "results/openface/mlp-followup/diagnostics/identity_interaction_probe_method.json": "5c2f58d1b1d9b8058f8f72880d61c736bb9816e7074dae04f387f2cae0acd03c",
-    "results/openface/mlp-followup/diagnostics/main_findings.csv": "e7a0c7b50edba5c4d24a818a027ea0a712d746b1b34460535e33c8dc841be11d",
-    "results/openface/mlp-followup/diagnostics/main_table.csv": "9e221123c8ac161916a27932beb838b3f2617bb76f685b38e94544b19c7ce9a8",
+    "results/openface/mlp-followup/diagnostics/main_findings.csv": "a2aad381823318a094c634e67dc17bdcdf4a4c14a72f77dcd22538ae34c28df0",
+    "results/openface/mlp-followup/diagnostics/main_table.csv": "d0500789d228ec3e9e55eefe03d1c51ea7ce8760e5636d4f0a92a45627f9aee0",
     "results/openface/mlp-followup/diagnostics/original_model_summary.csv": "7bb1fd31dec6d87c9f257844ccff5b5ff000709623131e879dec6226235b18fe",
     "results/openface/mlp-followup/diagnostics/pose_coverage_frames.csv": "555c5c6e63985a58faf3bf8a136b363381185b132752a07671b62047fc436de6",
     "results/openface/mlp-followup/diagnostics/pose_feature_ranges.csv": "b70598e04e421f9c2e05271a0255837b6f815ec8505abab5dfcaf47f7922ff30",
@@ -77,5 +77,27 @@
     "results/openface/mlp-followup/diagnostics/released_extreme_translations.json": "0cf7758a812c925b40dd1c6232119d17b7eee36a21571ac84213f09e3d914c70",
     "results/openface/mlp-followup/diagnostics/translation_scale_diagnostics.csv": "1796303a780f45cd9fbb1b43c935fe77a0d4640ea28792762cba15390897951b",
     "results/openface/mlp-followup/diagnostics/weight_matched_split_comparison.csv": "9f646eef0571ade31e97edfbf183b5af4aafd4d6e94a172e03b6647f99eccf53"
+  },
+  "editorial_artifact_revisions": {
+    "results/openface/mlp-followup/diagnostics/main_table.csv": {
+      "historical_sha256": "9e221123c8ac161916a27932beb838b3f2617bb76f685b38e94544b19c7ce9a8",
+      "current_sha256": "d0500789d228ec3e9e55eefe03d1c51ea7ce8760e5636d4f0a92a45627f9aee0",
+      "change": "Model labels clarified; numeric cells unchanged."
+    },
+    "results/openface/mlp-followup/diagnostics/main_findings.csv": {
+      "historical_sha256": "e7a0c7b50edba5c4d24a818a027ea0a712d746b1b34460535e33c8dc841be11d",
+      "current_sha256": "a2aad381823318a094c634e67dc17bdcdf4a4c14a72f77dcd22538ae34c28df0",
+      "change": "Updated labels and descriptive wording using retained results; models and numerical results unchanged."
+    },
+    "figures/mlp-followup/diagnostic_figure.png": {
+      "historical_sha256": "180eea0a639ecde12bfbc61c42d1fca0f076fe1bbd7c85e799b33189991653c7",
+      "current_sha256": "bdad3f8da3ecbe8609162822c160ab21880cbfc930ef9eb4a09a1ea3bd6f8e51",
+      "change": "Updated labels and descriptive wording using retained results; models and numerical results unchanged."
+    },
+    "figures/mlp-followup/diagnostic_figure.svg": {
+      "historical_sha256": "e8f80224c4043b4d5ad846b2a308fb14025592b134470570ef636db4473e8280",
+      "current_sha256": "eabf254f27b9ba50e6a7ad84394da62518855e0d47d31c7b98a4c2fac6c5d7d6",
+      "change": "Updated labels and descriptive wording using retained results; models and numerical results unchanged."
+    }
   }
 }

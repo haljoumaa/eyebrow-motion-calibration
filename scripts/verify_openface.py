@@ -244,7 +244,7 @@ def check(root=ROOT, output=None):
         "fit_warnings": 0, "convergence_remedies_used": 0,
         "unknown_sentence_validation_frames": 0, "unknown_sentence_validation_recordings": 0,
         "retained_artifact_hashes_match": True,
-        "source_hashes_checked_with_documented_protocol_revision": revisions,
+        "source_hashes_checked_with_recorded_revisions": revisions,
         "omitted_regenerable_artifact_sha256": omitted,
         "tolerances": {"relative": 1e-12, "absolute": 1e-12}}
     # Retain descriptive gains/failures for the review, without changing any settings.
@@ -268,7 +268,7 @@ def check(root=ROOT, output=None):
         with (out / "result_inspection.json").open("x") as stream:
             stream.write(json.dumps(inspection, indent=2, allow_nan=False) + "\n")
     print(f"PASS: {len(predictions)} OpenFace predictions, {len(recs)} recording metrics; "
-          "exact sources with the documented protocol revision")
+          "recorded sources and saved-result arithmetic")
     return write
 
 

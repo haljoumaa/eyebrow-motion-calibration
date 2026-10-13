@@ -121,7 +121,7 @@ def run(repo, results, diagnostics, probe, output):
     ax.set_ylabel('MLP − ridge joint MSE'); ax.set_title('B  Pose novelty and excess error',loc='left')
     ax.text(.98,.97,'Spearman ρ: 0.095 / 0.147 / 0.165',transform=ax.transAxes,ha='right',va='top',fontsize=9)
     ax=axs[1,0]
-    labels=['Fixed MLP','Full-input MLP\nα=100','MLP (pose + signer)\nα=100']; groups=['original','followup_full','followup_no_sentence']
+    labels=['Fixed MLP','MLP (pose + signer\n+ sentence), α=100','MLP (pose + signer)\nα=100']; groups=['original','followup_full','followup_no_sentence']
     for j,(key,color,name) in enumerate([('seen_pair_mean_interaction','#6b8f9e','Pairs present in training'),('held_pair_mean_interaction','#cb765b','Held-out pairs')]):
         values=[]; lower=[]; upper=[]
         for group in groups:
@@ -147,7 +147,7 @@ def run(repo, results, diagnostics, probe, output):
     ax.axhline(fixed,color='#4c565d',lw=1.5,label=f'Fixed ridge: {fixed:.2f}')
     ax.axhline(tuned,color='#4c565d',lw=1,ls='--',label=f'Grouped ridge: {tuned:.2f}')
     ax.set_yscale('log'); ax.set_ylim(1.9,65)
-    ax.set_xticks(range(4),['Fixed MLP\nfull inputs','Grouped α\nfull inputs','Grouped α\npose + signer','Grouped α\npose only'])
+    ax.set_xticks(range(4),['Fixed MLP\npose + signer\n+ sentence','Grouped α\npose + signer\n+ sentence','Grouped α\npose + signer','Grouped α\npose only'])
     ax.set_ylabel('Equal-recording joint MSE'); ax.set_title('D  Joint MSE after grouped selection',loc='left')
     handles,labels=ax.get_legend_handles_labels()
     ax.legend(handles[-2:],labels[-2:],frameon=False,fontsize=9,loc='upper right')
@@ -157,7 +157,7 @@ def run(repo, results, diagnostics, probe, output):
     common=[Line2D([0],[0],marker='o',linestyle='',color=COLORS[s],label=f'Seed {s}') for s in [42,7,19]]
     common.extend([Line2D([0],[0],marker='o',linestyle='',color='#5b6268',label='Inner target (A)'),Line2D([0],[0],marker='x',linestyle='',color='#5b6268',label='Outer target (A)')])
     fig.legend(handles=common,loc='upper left',bbox_to_anchor=(.05,.915),ncol=5,frameon=False,fontsize=9)
-    fig.text(.05,.016,'A, B and D use identical held-out recordings. Follow-ups are exploratory; settings are selected inside outer training folds. C checks model responses, not causal effects.\nSource: Kuznetsova et al. (2022), pinned released OpenFace inputs; local fixed experiment and separate analysis.',fontsize=9,color='#4c565d')
+    fig.text(.05,.016,'A, B and D use the same held-out recordings. Follow-up settings are selected within outer training folds; the analysis is exploratory. C probes model responses at fixed training poses.\nSource: released OpenFace measurements from Kuznetsova et al. (2022); experiments in this repository.',fontsize=9,color='#4c565d')
     fig.subplots_adjust(top=.865,bottom=.13,left=.07,right=.98,wspace=.3,hspace=.4)
     fig.savefig(figures/'diagnostic_figure.png',dpi=220)
     fig.savefig(figures/'diagnostic_figure.svg')

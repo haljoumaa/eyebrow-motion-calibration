@@ -217,7 +217,7 @@ def run_baselines(output, root=ROOT):
                     "absolute_tolerance": 1e-12, "relative_tolerance": 1e-12}
     (output / "verification.json").write_text(json.dumps(verification, indent=2) + "\n")
     source_files = ["src/facial_motion/openface_data.py", "src/facial_motion/openface_baselines.py",
-                    "tests/test_openface_baselines.py", "docs/methodology.md", "docs/methodology.md"]
+                    "tests/test_openface_baselines.py"]
     metadata = {"run_at_oslo": datetime.now(ZoneInfo("Europe/Oslo")).isoformat(), "phase": 1,
                 "scope": "Global/signer means on historical frame splits only", "platform": platform.platform(),
                 "python": platform.python_version(), "packages": {name: importlib.metadata.version(name) for name in ("numpy", "pandas", "scikit-learn")},

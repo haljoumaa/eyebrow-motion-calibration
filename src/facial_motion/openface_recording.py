@@ -202,12 +202,10 @@ def run_recording_evaluation(output, root=ROOT, save_bundles=False):
             raise ValueError(f"Preserved input/source hash differs: {relative}")
     source_files = ["src/facial_motion/openface_recording.py", "src/facial_motion/openface_reproduction.py",
                     "src/facial_motion/openface_baselines.py", "src/facial_motion/openface_data.py",
-                    "tests/test_openface_recording.py", CONFIG_PATH, "docs/methodology.md",
-                    "docs/methodology.md", "docs/methodology.md"]
+                    "tests/test_openface_recording.py", CONFIG_PATH]
     if save_bundles:
         from .openface_bundle import save_bundle
-        source_files.extend(["src/facial_motion/openface_bundle.py", "docs/methodology.md",
-                             "docs/methodology.md"])
+        source_files.append("src/facial_motion/openface_bundle.py")
     source_hashes = {p: sha256(root / p) for p in source_files}
     output.mkdir(parents=True, exist_ok=False)
     (output / "fit_states").mkdir()

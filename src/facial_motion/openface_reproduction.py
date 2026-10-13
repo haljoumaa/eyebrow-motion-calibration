@@ -207,7 +207,7 @@ def run_reproduction(output, root=ROOT):
     (output / "fit_states").mkdir()
     source_files = ["src/facial_motion/openface_reproduction.py", "src/facial_motion/openface_data.py",
                     "src/facial_motion/openface_baselines.py", "tests/test_openface_reproduction.py",
-                    CONFIG_PATH, "docs/methodology.md", "docs/methodology.md", "docs/methodology.md"]
+                    CONFIG_PATH]
     source_hashes = {relative: sha256(root / relative) for relative in source_files}
     plan = {"recorded_before_fitting_at_oslo": now(), "config": config, "input_provenance": data.provenance,
             "target_order": list(TARGETS), "numeric_feature_order": list(NUMERIC_FEATURES),

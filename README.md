@@ -1,40 +1,34 @@
 # Eyebrow measurement under head movement
 
-This project investigates whether head-pose correction improves eyebrow measurements used in sign-language analysis without suppressing expression. It predicts neutral eyebrow distances from released OpenFace measurements, compares frame-level and whole-recording validation, and explores MLP regularization and input ablations. A separate Face Landmarker pilot evaluates pitch correction.
+How well do models predict neutral eyebrow distances in new recordings of known signers and sentences? This repository compares ridge regression and multilayer perceptrons (MLPs) using released OpenFace measurements. It tests frame splits that share recordings between training and validation, whole-recording holdout, and an exploratory follow-up with stronger regularization.
 
-## Principal findings
+A separate Face Landmarker pilot examines whether pitch correction reduces variation in neutral eyebrow measurements while preserving eyebrow raises.
 
-The fixed OpenFace experiments use 4,414 neutral frames from 63 recordings and eight signers. Ridge regression and a multilayer perceptron (MLP) use pose, signer and sentence inputs. Joint mean squared error (MSE) averages the inner- and outer-brow target errors; seed 42 is the primary MLP fit.
+## Results
 
-| Fixed evaluation | Ridge joint MSE | MLP joint MSE |
+The OpenFace experiments use 4,414 neutral frames from 63 recordings and eight signers. Both models use pose, signer, and sentence inputs. Joint mean squared error (MSE) averages the errors for the inner and outer eyebrow-distance targets, in released coordinate units squared. The table reports MLP seed 42.
+
+| Validation | Ridge joint MSE | MLP joint MSE |
 |---|---:|---:|
-| Frame splits, mean frame-weighted fold score | 1.317580 | 0.429238 |
-| Whole-recording folds, equal recording weights | 2.471308 | 31.796760 |
+| Frame splits with shared recordings | 1.318 | 0.429 |
+| Held-out whole recordings | 2.471 | 31.797 |
 
-Frame splits share recordings between training and validation; the different score weights prevent a direct percentage comparison. In the exploratory follow-up, recording-grouped selection gives joint MSEs of 3.106 for the full-input MLP, 2.623 for MLP (pose + signer), and 6.093 for MLP (pose only), versus 2.600 for ridge with grouped selection. The fixed ridge score remains lower at 2.471. These results do not establish an overall MLP advantage. See the [comparison table](results/openface/mlp-followup/diagnostics/main_table.csv).
+Frame-split scores average four frame-weighted fold scores; whole-recording scores weight the 63 held-out recordings equally. The displayed scores therefore use different aggregation weights. Signers and sentence categories are known in both evaluations.
 
-In the separate one-participant, 22-recording pilot, the generalized additive model (GAM) reduces neutral root mean squared error (RMSE) by 26.9% within the training pitch range. Held-raised RMSE increases by 29.8%, and raised/neutral separation decreases. Neither the GAM nor the pilot MLP demonstrates expression preservation. See the [aggregate pilot results](results/face-landmarker/summary.csv).
+The fixed MLP has lower error than ridge on frame splits and substantially higher error on held-out recordings. In the exploratory follow-up, grouped selection chooses an MLP using pose and signer inputs, with stronger regularization. Its held-out joint MSE is 2.623, compared with 2.471 for fixed ridge and 2.600 for ridge with grouped selection. This follow-up was informed by the fixed experiment's errors; it needs confirmation on fresh recordings. See the [full comparison table](results/openface/mlp-followup/diagnostics/main_table.csv).
 
-OpenFace validation includes no unseen signers or sentences. Correlated frames, approximate neutral targets, the exploratory follow-up design and imperfect pilot references limit interpretation. The [methodology](docs/methodology.md) describes the datasets, models, validation and limitations.
+![Ridge and MLP error under frame and whole-recording validation](figures/02_validation_comparison.png)
 
-## Figures
+[Errors by recording](figures/03_recording_differences.png) · [MLP diagnostics](figures/mlp-followup/diagnostic_figure.png)
 
-![Fixed frame and whole-recording validation](figures/02_validation_comparison.png)
-
-[Recording differences](figures/03_recording_differences.png) · [MLP diagnostics](figures/mlp-followup/diagnostic_figure.png)
-
-In the historical diagnostic figure and result tables, “Signer only” means pose + signer, with sentence identity excluded (`no_sentence`). The diagnostics describe model behavior; they do not establish the cause of the held-out errors.
+The one-participant pilot includes 22 recordings. Within the training pitch range, the generalized additive model (GAM) lowers neutral RMSE at all three camera distances but increases held-raised RMSE. Both the GAM and pilot MLP reduce AUROC for distinguishing annotated raised and neutral states in the close-distance alternating clips. These results do not demonstrate expression preservation. The [pilot summary](results/face-landmarker/summary.csv) reports mean recording-level metrics separately for each camera distance.
 
 ## Reproduction
 
-The [reproduction guide](docs/reproduction.md) covers installation, input retrieval, tests, saved-result checks, experiment runs, inference and figure generation. The recorded environment is CPython 3.12.5 on macOS Apple Silicon.
+Start with the [reproduction guide](docs/reproduction.md). It covers installation, checking saved OpenFace results, rerunning experiments, and an inference example. OpenFace inputs can be retrieved from pinned sources. Exact pilot replay requires the original local videos, reviewed annotations, and reference intervals; only its aggregate summary is included here.
 
-Code is in `src/` and `scripts/`; experiment settings are in `configs/` and `config.yaml`. Numerical outputs, fitted state and predictions are in `results/`, and figures are in `figures/`. `tests/` contains the test suite; `research/` contains pinned input manifests and [source references](research/references.bib).
+## Sources and license
 
-Source datasets, videos, full landmark caches and external model binaries are retrieved separately. Participant-linked pilot manifests, annotations, review records, frame predictions, recording metrics, run metadata and the real-frame figure are excluded; aggregate pilot results remain. Exact pilot replay requires the original local inputs. See the [reproduction guide](docs/reproduction.md).
+OpenFace measurements come from [Kuznetsova et al. (2022)](https://aclanthology.org/2022.signlang-1.19/) and their [input repository](https://github.com/kuzanna2016/non-manuals-2021). The pilot uses videos associated with [Kuznetsova and Kimmelman (2024)](https://arxiv.org/abs/2403.10367v2), available through [OSF](https://osf.io/jvc42/). Further references are in the [bibliography](research/references.bib).
 
-## License and data sources
-
-The original code in `src/`, `scripts/` and `tests/` is licensed under the [MIT License](LICENSE), copyright © 2026 Hareth Al-Jomaa. This grant excludes datasets, research outputs, figures, fitted model artifacts and third-party materials.
-
-The OpenFace inputs come from [Kuznetsova et al. (2022)](https://github.com/kuzanna2016/non-manuals-2021); the pilot videos come from [Kuznetsova and Kimmelman (2024)](https://osf.io/jvc42/). The [data-use notes](docs/reproduction.md#licensing-and-data-use) describe source terms, the pilot exclusions and local reproduction.
+Original code in `src/`, `scripts/`, and `tests/` is licensed under the [MIT License](LICENSE), copyright © 2026 Hareth Al-Jomaa. Datasets, research outputs, figures, fitted model artifacts, and third-party materials are excluded from that grant. See the [data-use notes](docs/reproduction.md#data-use).

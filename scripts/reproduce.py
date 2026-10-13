@@ -1,4 +1,4 @@
-"""Run both fixed experiments in a fresh directory and compare saved evidence."""
+"""Rerun the fixed OpenFace experiments and local pilot, then compare saved results."""
 import argparse,json
 from pathlib import Path
 from facial_motion.openface_data import ROOT
@@ -47,7 +47,7 @@ def repeat(output, root=ROOT):
                 else:
                     state_checks[original.name+'/metadata.'+key]=compare_values(first[key],last[key])
     verify_fresh_process(root,output,replay=output/'recording-split')
-    record={'passed':True,'source_hash_checks_with_documented_protocol_revision':protocol_revisions,'rtol':1e-12,'atol':1e-12,'tables':table_checks,'state_max_absolute_differences':state_checks,'maximum_table_difference':max(c['max_absolute_numeric_difference'] for c in table_checks),'fit_times_and_completion_timestamps_excluded':True,'numerical_equivalence_is_environment_specific':True}
+    record={'passed':True,'source_hash_checks_with_recorded_revisions':protocol_revisions,'rtol':1e-12,'atol':1e-12,'tables':table_checks,'state_max_absolute_differences':state_checks,'maximum_table_difference':max(c['max_absolute_numeric_difference'] for c in table_checks),'fit_times_and_completion_timestamps_excluded':True,'numerical_equivalence_is_environment_specific':True}
     (output/'replay-check.json').write_text(json.dumps(record,indent=2)+'\n')
     print('PASS: fixed experiments, state comparisons and 28 fresh-process bundle reloads')
     return record

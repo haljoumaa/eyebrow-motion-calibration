@@ -148,7 +148,7 @@ def run_evaluation(root=ROOT, output=None):
         annotations = list(csv.DictReader(f))
     tables = {}
     inputs = ["config.yaml", "data/manifest.csv", "data/references.csv", "data/annotations.csv"]
-    inputs.extend(p for p in ["docs/methodology.md", "data/qa_frames.csv", "data/audit_review.json",
+    inputs.extend(p for p in ["data/qa_frames.csv", "data/audit_review.json",
                               "results/audit/protocol_freeze.json"] if (root / p).exists())
     for row in rows:
         rid = row["recording_id"]
