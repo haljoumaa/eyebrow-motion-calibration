@@ -4,6 +4,8 @@ How well do models predict neutral eyebrow distances in new recordings of known 
 
 A separate Face Landmarker pilot examines whether pitch correction reduces variation in neutral eyebrow measurements while preserving eyebrow raises.
 
+[Read the report (PDF)](docs/eyebrow-measurement-report.pdf).
+
 ## Results
 
 The OpenFace experiments use 4,414 neutral frames from 63 recordings and eight signers. Both models use pose, signer, and sentence inputs. Joint mean squared error (MSE) averages the errors for the inner and outer eyebrow-distance targets, in released coordinate units squared. The table reports MLP seed 42.
@@ -21,7 +23,7 @@ The fixed MLP has lower error than ridge on frame splits and substantially highe
 
 [Errors by recording](figures/03_recording_differences.png) · [MLP diagnostics](figures/mlp-followup/diagnostic_figure.png)
 
-The one-participant pilot includes 22 recordings. Within the training pitch range, the generalized additive model (GAM) lowers neutral RMSE at all three camera distances but increases held-raised RMSE. Both the GAM and pilot MLP reduce AUROC for distinguishing annotated raised and neutral states in the close-distance alternating clips. These results do not demonstrate expression preservation. The [pilot summary](results/face-landmarker/summary.csv) reports mean recording-level metrics separately for each camera distance.
+The one-participant pilot includes 22 recordings. Within the training pitch range, the generalized additive model (GAM) lowers neutral RMSE at all three camera distances but increases held-raised RMSE. Both the GAM and pilot MLP reduce AUROC for distinguishing annotated raised and neutral states in one close-distance alternating recording. These results do not demonstrate expression preservation. The [pilot summary](results/face-landmarker/summary.csv) reports mean recording-level metrics separately for each camera distance. The [pooled pilot table](results/face-landmarker/pooled_summary.csv) gives equal-recording averages across distances at full numerical precision, with verified recording counts.
 
 ## Reproduction
 

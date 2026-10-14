@@ -1,0 +1,81 @@
+{
+  "description": "Equal-recording averages across camera distances exported from the original saved pilot metrics. Primary RMSE and AUROC values retain the saved arithmetic verification precision.",
+  "aggregation": "Each recording has equal weight within its condition, method and scope. Every recording contributes a finite value to its applicable metrics.",
+  "source_artifact_sha256": {
+    "results/face-landmarker/recording_metrics.csv": "f30c9e61935e77b16dff544f4f96a2023e5f6238d1b11534d79cdc9ea40d06cf",
+    "results/face-landmarker/summary.csv": "6f14d3973f150d8f16bdf3ff6191ac9a17215c920964e7ee34064b7140c8d605",
+    "results/face-landmarker/predictions.csv": "2a4254a20f7cd19b9f192959867859cfde469ec243b44a436e2b55b02107b202",
+    "results/verification/pilot-arithmetic.json": "8452993bacb89de2aa6bbf9922bc08a9dc60ba2b58ecbedcbcc816ddf27a683b"
+  },
+  "recording_counts": [
+    {
+      "distance": "close",
+      "condition": "alternating",
+      "recording_count": 2
+    },
+    {
+      "distance": "close",
+      "condition": "neutral",
+      "recording_count": 4
+    },
+    {
+      "distance": "close",
+      "condition": "raised",
+      "recording_count": 2
+    },
+    {
+      "distance": "far",
+      "condition": "alternating",
+      "recording_count": 2
+    },
+    {
+      "distance": "far",
+      "condition": "neutral",
+      "recording_count": 4
+    },
+    {
+      "distance": "far",
+      "condition": "raised",
+      "recording_count": 2
+    },
+    {
+      "distance": "middle",
+      "condition": "alternating",
+      "recording_count": 1
+    },
+    {
+      "distance": "middle",
+      "condition": "neutral",
+      "recording_count": 3
+    },
+    {
+      "distance": "middle",
+      "condition": "raised",
+      "recording_count": 2
+    }
+  ],
+  "pooled_summary_sha256": "5496502c02b25dce7514f49b114140cbff976e7c8e449bdae309f7b263f2b537",
+  "source_sha256": {
+    "scripts/prepare_verification_checkout.py": "2140abace6e29b4d3e978cd522d6a2ddbe7a16f9a0a6644b08ecb6d1381f70a6",
+    "scripts/verify_pilot.py": "7bc0b2defd102d40d11daf0893f46986feb927fb9338b843ca41d12c470e4185"
+  },
+  "source_revisions": {
+    "scripts/prepare_verification_checkout.py": {
+      "historical_sha256": "04e34dac09199930d10b6da32b7d31d93f37641a1f58e4d2eb7ee3816942e587",
+      "current_sha256": "2140abace6e29b4d3e978cd522d6a2ddbe7a16f9a0a6644b08ecb6d1381f70a6",
+      "change": "Module description and two exception messages simplified. All verification checks are unchanged."
+    }
+  },
+  "checks": {
+    "saved_pilot_verification_passed": true,
+    "recording_metric_rows": 220,
+    "pooled_summary_rows": 30,
+    "distance_summary_rows": 90,
+    "distance_summary_sha256_unchanged": true,
+    "maximum_absolute_reconstruction_difference": 6.071532165918825e-17,
+    "rtol": 1e-12,
+    "atol": 1e-12,
+    "verification_helper_checks_unchanged": true,
+    "models_fitted": 0
+  }
+}

@@ -1,8 +1,7 @@
-"""Prepare a private scientific copy with exact source observations, without fitting.
+"""Prepare a verification copy with restored source observations.
 
-The public prediction projections contain saved model outputs. Source observations
-come only from checksum-pinned external inputs. Complete original CSV hashes are
-mandatory; no approximation, updated checksum or replacement finding is accepted.
+The copy combines saved predictions with checksum-verified external inputs and
+checks the restored CSVs against their original hashes without fitting models.
 """
 
 import argparse
@@ -67,7 +66,7 @@ def prepare(output, inputs=ROOT, pilot_cache=None):
             writer.writerow(row); count += 1
         data = buffer.getvalue().encode()
         if count != record['rows'] or sha(data) != record['original_sha256']:
-            raise ValueError('Restored complete prediction CSV differs from original; use the recorded runtime')
+            raise ValueError('Restored prediction CSV differs from the original. Use the recorded runtime.')
         generated[record['original_path']] = data
 
     metadata = json.loads((ROOT / 'results/openface/recording-split/run_metadata.json').read_text())
@@ -87,7 +86,7 @@ def prepare(output, inputs=ROOT, pilot_cache=None):
             raise ValueError('Output overlaps pilot cache')
         metadata_path = inputs / 'results/face-landmarker/run_metadata.json'
         if not metadata_path.is_file():
-            raise FileNotFoundError('Pilot cache verification requires original local-only run metadata under --inputs; see docs/reproduction.md.')
+            raise FileNotFoundError('Pilot cache verification requires the original run metadata under --inputs. See docs/reproduction.md.')
         metadata = json.loads(metadata_path.read_text())
         for relative, expected in metadata['input_hashes'].items():
             if not relative.startswith('data/cache/'):

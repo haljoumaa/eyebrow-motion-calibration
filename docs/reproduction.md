@@ -37,7 +37,7 @@ python -B -m pytest -q -p no:cacheprovider
 
 Retrieval writes inputs under `research/upstream-review/` and checks SHA-256 hashes against `research/upstream-assets.json`, pinned to upstream commit `c44f4ba6d3b385cfb210fc6df80c8d2c00ef27f0`. An OpenFace executable is not required.
 
-The loader selects 4,414 neutral frames and retains the 65 confidence-below-0.8 flags. Retrieve inputs before testing: six data-dependent tests skip when inputs are absent. A complete run should pass without those skips.
+The loader selects 4,414 neutral frames and retains the 65 confidence-below-0.8 flags. The source study reports replacing low-confidence measurements with neighbouring values in [Section 2.1](https://aclanthology.org/2022.signlang-1.19.pdf), so the retained flags do not establish that the released coordinates were unchanged. Retrieve inputs before testing. Six data-dependent tests skip when inputs are absent. A complete run should pass without those skips.
 
 ## Check saved OpenFace results
 
@@ -130,6 +130,8 @@ python -m facial_motion evaluate --output tmp/repeat/face-landmarker
 Extraction writes landmarks and measurements to `data/cache/` and extraction metadata to `results/pilot/`. Evaluation writes predictions, recording-level metrics, a summary, and run metadata to the requested directory. It holds out each camera distance in turn and checks source and model hashes.
 
 `results/face-landmarker/summary.csv` contains mean recording-level RMSE, MAE, and AUROC by camera distance, condition, method, and evaluation scope. `supported_pose` scores frames within the training pitch range; `complete_clip_raw_fallback` retains raw measurements outside it. Alternating clips use AUROC to distinguish annotated raised and neutral states.
+
+The [pooled pilot table](../results/face-landmarker/pooled_summary.csv) gives equal-recording averages across camera distances at full numerical precision for both scopes and all five methods. Its recording counts were checked against the original saved metrics. The [provenance record](../research/pilot-summary-provenance.json) records the source hashes and counts by distance, allowing the pooled averages to be reconstructed from the distance-specific summary.
 
 To check saved pilot arithmetic, supply the original pilot input/result files and measurement caches. Start at the repository root:
 
